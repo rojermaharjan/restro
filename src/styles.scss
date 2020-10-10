@@ -1,1 +1,577 @@
-/* You can add global styles to this file, and also import other style files */
+// owl-carousel
+@import "~slick-carousel/slick/slick.scss";
+@import "~slick-carousel/slick/slick-theme.scss";
+
+// @Functions
+@mixin _assert-ascending($map, $map-name) {
+  $prev-key: null;
+  $prev-num: null;
+  @each $key, $num in $map {
+    @if $prev-num == null or unit($num) == "%" {
+      // Do nothing
+    } @else if not comparable($prev-num, $num) {
+      @warn "Potentially invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} whose unit makes it incomparable to #{$prev-num}, the value of the previous key '#{$prev-key}' !";
+    } @else if $prev-num >= $num {
+      @warn "Invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} which isn't greater than #{$prev-num}, the value of the previous key '#{$prev-key}' !";
+    }
+    $prev-key: $key;
+    $prev-num: $num;
+  }
+}
+
+// Starts at zero
+// Used to ensure the min-width of the lowest breakpoint starts at 0.
+@mixin _assert-starts-at-zero($map, $map-name: "$grid-breakpoints") {
+  $values: map-values($map);
+  $first-value: nth($values, 1);
+  @if $first-value != 0 {
+    @warn "First breakpoint in #{$map-name} must start at 0, but starts at #{$first-value}.";
+  }
+}
+
+// @Variables
+$displays: none, inline, inline-block, block, table, table-row, table-cell, flex, inline-flex !default;
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+) !default;
+
+@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+@include _assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
+
+// @Mixins
+// Breakpoint
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+  $min: map-get($breakpoints, $name);
+  @return if($min != 0, $min, null);
+}
+@function breakpoint-infix($name, $breakpoints: $grid-breakpoints) {
+  @return if(breakpoint-min($name, $breakpoints) == null, "", "-#{$name}");
+}
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+// @Utilities
+// Display
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    @each $value in $displays {
+      .d#{$infix}-#{$value} {
+        display: $value;
+      }
+    }
+  }
+}
+
+// Flex
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .flex#{$infix}-row {
+      flex-direction: row;
+    }
+    .flex#{$infix}-column {
+      flex-direction: column;
+    }
+    .flex#{$infix}-row-reverse {
+      flex-direction: row-reverse;
+    }
+    .flex#{$infix}-column-reverse {
+      flex-direction: column-reverse;
+    }
+
+    .flex#{$infix}-wrap {
+      flex-wrap: wrap;
+    }
+    .flex#{$infix}-nowrap {
+      flex-wrap: nowrap;
+    }
+    .flex#{$infix}-wrap-reverse {
+      flex-wrap: wrap-reverse;
+    }
+    .flex#{$infix}-fill {
+      flex: 1 1 auto;
+    }
+    .flex#{$infix}-grow-0 {
+      flex-grow: 0;
+    }
+    .flex#{$infix}-grow-1 {
+      flex-grow: 1;
+    }
+    .flex#{$infix}-shrink-0 {
+      flex-shrink: 0;
+    }
+    .flex#{$infix}-shrink-1 {
+      flex-shrink: 1;
+    }
+
+    .justify-content#{$infix}-start {
+      justify-content: flex-start;
+    }
+    .justify-content#{$infix}-end {
+      justify-content: flex-end;
+    }
+    .justify-content#{$infix}-center {
+      justify-content: center;
+    }
+    .justify-content#{$infix}-between {
+      justify-content: space-between;
+    }
+    .justify-content#{$infix}-around {
+      justify-content: space-around;
+    }
+
+    .align-items#{$infix}-start {
+      align-items: flex-start;
+    }
+    .align-items#{$infix}-end {
+      align-items: flex-end;
+    }
+    .align-items#{$infix}-center {
+      align-items: center;
+    }
+    .align-items#{$infix}-baseline {
+      align-items: baseline;
+    }
+    .align-items#{$infix}-stretch {
+      align-items: stretch;
+    }
+
+    .align-content#{$infix}-start {
+      align-content: flex-start;
+    }
+    .align-content#{$infix}-end {
+      align-content: flex-end;
+    }
+    .align-content#{$infix}-center {
+      align-content: center;
+    }
+    .align-content#{$infix}-between {
+      align-content: space-between;
+    }
+    .align-content#{$infix}-around {
+      align-content: space-around;
+    }
+    .align-content#{$infix}-stretch {
+      align-content: stretch;
+    }
+
+    .align-self#{$infix}-auto {
+      align-self: auto;
+    }
+    .align-self#{$infix}-start {
+      align-self: flex-start;
+    }
+    .align-self#{$infix}-end {
+      align-self: flex-end;
+    }
+    .align-self#{$infix}-center {
+      align-self: center;
+    }
+    .align-self#{$infix}-baseline {
+      align-self: baseline;
+    }
+    .align-self#{$infix}-stretch {
+      align-self: stretch;
+    }
+  }
+}
+
+// Position utils
+.position-relative {
+  position: relative;
+}
+.position-absolute {
+  position: absolute;
+}
+.position-static {
+  position: static;
+}
+.position-fixed {
+  position: fixed;
+}
+
+// Size
+@each $prop, $abbrev in (height: h, width: w) {
+  @for $index from 0 through 180 {
+    $size: $index * 4;
+    $length: #{$size}px;
+
+    .#{$abbrev}-#{$size} {
+      #{$prop}: $length;
+      min-#{$prop}: $length;
+      max-#{$prop}: $length;
+    }
+  }
+
+  // Percentage
+  @for $i from 0 through 20 {
+    $i-p: 5 * $i;
+    $size-p: 5% * $i;
+
+    .#{$abbrev}-#{$i-p}-p {
+      #{$prop}: $size-p;
+    }
+  }
+}
+
+// Spacing
+@each $prop, $abbrev in (margin: m, padding: p) {
+  @for $index from 0 through 64 {
+    $size: $index * 4;
+    $length: #{$size}px;
+
+    .#{$abbrev}-#{$size} {
+      #{$prop}: $length;
+    }
+  }
+
+  @for $index from 0 through 64 {
+    $size: $index * 4;
+    $length: #{$size}px;
+
+    .#{$abbrev}x-#{$size} {
+      #{$prop}-right: $length;
+      #{$prop}-left: $length;
+    }
+
+    .#{$abbrev}y-#{$size} {
+      #{$prop}-top: $length;
+      #{$prop}-bottom: $length;
+    }
+  }
+
+  @for $index from 0 through 64 {
+    $size: $index * 4;
+    $length: #{$size}px;
+
+    .#{$abbrev}t-#{$size} {
+      #{$prop}-top: $length;
+    }
+
+    .#{$abbrev}r-#{$size} {
+      #{$prop}-right: $length;
+    }
+
+    .#{$abbrev}b-#{$size} {
+      #{$prop}-bottom: $length;
+    }
+
+    .#{$abbrev}l-#{$size} {
+      #{$prop}-left: $length;
+    }
+  }
+
+  @if ($abbrev == m) {
+    // Some special margin utils for flex alignments
+    .m-auto {
+      margin: auto;
+    }
+
+    .mt-auto {
+      margin-top: auto;
+    }
+
+    .mr-auto {
+      margin-right: auto;
+    }
+
+    .mb-auto {
+      margin-bottom: auto;
+    }
+
+    .ml-auto {
+      margin-left: auto;
+    }
+
+    .mx-auto {
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .my-auto {
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+  }
+}
+
+// Z-index
+@for $index from 0 through 10 {
+  .z-#{$index} {
+    z-index: #{$index};
+  }
+}
+
+// Overflow
+.overflow-h {
+  overflow: hidden;
+}
+
+// Cursor
+.cursor-pointer {
+  cursor: pointer;
+}
+.cursor-default {
+  cursor: default;
+}
+
+// Text format helpers
+.text-italic {
+  font-style: italic;
+}
+
+.text-semibold {
+  font-weight: 600;
+}
+
+.text-bold {
+  font-weight: 700;
+}
+
+.text-strike {
+  text-decoration: line-through;
+}
+
+.text-super {
+  vertical-align: super;
+}
+
+.text-sub {
+  vertical-align: sub;
+}
+
+.text-mid {
+  vertical-align: middle;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+// Text align helpers
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+// Font weight helpers
+@for $weight from 1 through 9 {
+  .font-weight-#{$weight * 100} {
+    font-weight: #{$weight * 100};
+  }
+}
+
+// Font size helpers
+@for $size from 1 through 60 {
+  .font-size-#{$size * 2} {
+    font-size: #{$size * 2}px;
+  }
+}
+
+//Container
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+// @ Normalize
+* {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 300;
+  color: #4e4e4e;
+  overflow-x: hidden;
+}
+a {
+  background-color: transparent;
+  text-decoration: none;
+  outline: none;
+  -webkit-transition: color 0.2s ease-out;
+  -moz-transition: color 0.2s ease-out;
+  transition: color 0.2s ease-out;
+  &:focus, &:hover {
+    text-decoration: none;
+    outline: none;
+  }
+}
+button {
+  outline: none;
+  border: 0;
+  border-radius: 0;
+  background: 0;
+  cursor: pointer;
+  margin: 0;
+}
+ul {
+  list-style: none;
+}
+[tabindex="0"]:focus {
+  outline: 0;
+}
+
+//General
+::selection {
+  background: #000;
+  color: #fff;
+}
+.black-btn {
+  position: relative;
+  width: auto;
+  margin: 0;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.95em;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  border-radius: 0;
+  -webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  -moz-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  padding: 10px 51px;
+  cursor: pointer;
+  &.solid {
+    color: rgb(255, 255, 255);
+    background-color: rgb(10, 10, 10);
+    border: 1px solid rgb(10, 10, 10);
+    &:hover {
+      color: rgb(10, 10, 10);
+      background-color: rgb(255, 255, 255);
+      border-color: rgb(10, 10, 10);
+    }
+  }
+  &.small {
+    padding: 4px 27px;
+  }
+}
+.flip-icon {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+//Material Icons
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px; /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: "liga";
+}
+
+/* Rules for sizing the icon. */
+.material-icons.md-18 {
+  font-size: 18px;
+}
+.material-icons.md-24 {
+  font-size: 24px;
+}
+.material-icons.md-36 {
+  font-size: 36px;
+}
+.material-icons.md-48 {
+  font-size: 48px;
+}
+
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark {
+  color: rgba(0, 0, 0, 0.54);
+}
+.material-icons.md-dark.md-inactive {
+  color: rgba(0, 0, 0, 0.26);
+}
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light {
+  color: rgba(255, 255, 255, 1);
+}
+.material-icons.md-light.md-inactive {
+  color: rgba(255, 255, 255, 0.3);
+}
