@@ -7,12 +7,14 @@ import { HeaderComponent } from './components/header/header.component';
 
 import { HeaderFixedDirective } from './directives/header-fixed.directive';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { ToggleClassDirective } from './directives/toggle-class.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderFixedDirective,
-    HeaderComponent
+    HeaderComponent,
+    ToggleClassDirective
   ],
   imports: [
     BrowserModule,

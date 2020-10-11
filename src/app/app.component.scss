@@ -1,3 +1,7 @@
+.grid {
+  width: 1100px;
+  margin: 0 auto;
+}
 .main-overlay {
   z-index: 0;
   position: fixed;
@@ -56,6 +60,7 @@
   }
 }
 .header {
+  position: relative;
   .right .right-inner {
     height: 100%;
     padding-left: 25px;
@@ -69,14 +74,83 @@
     box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
   }
 }
+
 .mobile-header {
-  height: 70px;
-  background-color: #fff;
-  border-bottom: 1px solid #e1e1e1;
-}
-.grid {
-  width: 1100px;
-  margin: 0 auto;
+  position: relative;
+  z-index: 1200;
+  .mobile-header-inner {
+    height: 70px;
+    background-color: #fff;
+    border-bottom: 1px solid #e1e1e1;
+    .mobile-header-bar {
+      position: relative;
+      height: 100%;
+    }
+  }
+  .mobile-nav {
+    display: none;
+    width: 100%;
+    background-color: #fff;
+    border-bottom: 1px solid #e1e1e1;
+    ul {
+      li a {
+        position: relative;
+        display: block;
+        padding: 9px 0;
+        margin: 0;
+        color: #4e4e4e;
+        border-bottom: 1px solid #e1e1e1;
+        &.active,
+        &:hover {
+          color: #000;
+        }
+      }
+      ul {
+        display: none;
+        li a {
+          font-size: 13px;
+          line-height: 24px;
+        }
+      }
+      .arrow {
+        right: 0;
+        top: 0;
+        width: 50px;
+        height: auto;
+        font-size: 15px;
+        line-height: inherit;
+        text-align: right;
+        padding: 9px 12px 9px 0;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+    .mobile-menu-item.active {
+      ul {
+        display: block;
+      }
+      .arrow {
+        transform: rotate(90deg);
+        transition: transform 0.2s ease-in-out;
+      }
+    }
+    .mobile-menu {
+      > .mobile-menu-item {
+        > a {
+          font-size: 13px;
+          text-transform: uppercase;
+          font-weight: 400;
+        }
+        &:last-child > a {
+          border-bottom: none;
+        }
+      }
+    }
+    &.active {
+      display: block;
+    }
+  }
 }
 .sidearea-svg-1 {
   -webkit-transform: translate3d(0, 0, 0);
@@ -253,8 +327,14 @@
       padding: 120px 0;
       background-size: cover;
       background-position: center;
-      min-height: 800px;
       padding: 0 0 70px;
+      .slider-content {
+        text-align: right;
+        .slider-icons-wrapper,
+        .slider-controls {
+          justify-content: flex-end;
+        }
+      }
       h1,
       p {
         max-width: 600px;
@@ -399,6 +479,71 @@
   }
 }
 
+.featured-area {
+  .section-title {
+    h2 {
+      font-weight: 700;
+      font-size: 35px;
+      margin-bottom: 16px;
+    }
+    h2 {
+      line-height: 1.3;
+      font-family: "Oswald", sans-serif;
+      color: #0b0320;
+    }
+    p {
+      max-width: 580px;
+      margin-bottom: 0;
+      margin-left: 0;
+      margin-right: auto;
+      color: #a5a4a9;
+    }
+  }
+}
+.feature-item {
+  position: relative;
+  margin-bottom: 30px;
+  transition: all 0.5s ease;
+  img {
+    width: 100%;
+    border-radius: 25px;
+  }
+  .feature-inner {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 30px;
+    background-color: #fff;
+    max-width: 310px;
+    border-radius: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 25px;
+    .category-text {
+      font-weight: 500;
+      font-size: 18px;
+      color: #0b0320;
+    }
+    a {
+      display: block;
+      width: 40px;
+      height: 40px;
+      line-height: 46px;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 23px;
+      color: #fff;
+      background-color: var(--color-1st);
+    }
+  }
+  &:hover {
+    transform: translateY(-10px);
+    .feature-inner a.category-link {
+      background-color: #0b0320;
+    }
+  }
+}
+
 @media only screen and (max-width: 1440px) {
   .sidearea {
     padding: 110px 40px 30px;
@@ -424,6 +569,25 @@
     width: 768px;
   }
 }
+@media (max-width: 991px) {
+  .main-slider.slider-1 .slider-inner {
+    .row {
+      flex-direction: column-reverse;
+      img {
+        padding-top: 12px;
+        max-width: 350px;
+        margin: 0 auto 30px;
+      }
+    }
+    .slider-content {
+      text-align: center;
+      .slider-icons-wrapper,
+      .slider-controls {
+        justify-content: center;
+      }
+    }
+  }
+}
 @media only screen and (max-width: 768px) {
   .grid {
     width: 600px;
@@ -434,4 +598,12 @@
 }
 .main {
   padding-top: 0;
+}
+@media (max-width: 575px) {
+  .main-slider.slider-1 .slider-inner .row {
+    flex-direction: column-reverse;
+    img {
+      max-width: 200px;
+    }
+  }
 }

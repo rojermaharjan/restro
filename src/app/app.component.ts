@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'restro';
   isSideareaOpen = false;
+  isMobileNavOpen = false;
   slides = [
     {
       id: 1,
