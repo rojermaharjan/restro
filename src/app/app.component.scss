@@ -480,11 +480,14 @@
 }
 
 .featured-area {
+  background-color: #fbf9f9;
   .section-title {
     h2 {
       font-weight: 700;
       font-size: 35px;
       margin-bottom: 16px;
+      margin-top: 0;
+      padding-top: 32px;
     }
     h2 {
       line-height: 1.3;
@@ -499,47 +502,154 @@
       color: #a5a4a9;
     }
   }
-}
-.feature-item {
-  position: relative;
-  margin-bottom: 30px;
-  transition: all 0.5s ease;
-  img {
-    width: 100%;
-    border-radius: 25px;
+  .feature-item {
+    position: relative;
+    margin-bottom: 30px;
+    transition: all 0.5s ease;
+    img {
+      width: 100%;
+      border-radius: 25px;
+    }
+    .feature-inner {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 30px;
+      background-color: #fff;
+      max-width: 310px;
+      border-radius: 50px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 25px;
+      .feature-btn {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .feature-icon {
+          display: flex;
+          align-items: center;
+          padding: 12px 0;
+        }
+        .feature-text {
+          font-weight: 500;
+          font-size: 18px;
+          color: #0b0320;
+          padding: 12px 0;
+        }
+        .feature-link-cont {
+          padding-right: 8px;
+          a.feature-link {
+            display: block;
+            width: 40px;
+            height: 40px;
+            line-height: 46px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 23px;
+            color: #fff;
+            background-color: var(--color-1st);
+          }
+        }
+      }
+    }
+    &:hover {
+      transform: translateY(-10px);
+      .feature-inner .feature-btn .feature-link-cont a.feature-link {
+        background-color: #0b0320;
+      }
+    }
   }
-  .feature-inner {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 30px;
-    background-color: #fff;
-    max-width: 310px;
-    border-radius: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 25px;
-    .category-text {
-      font-weight: 500;
-      font-size: 18px;
+}
+.featured-area-2 {
+  .section-title {
+    h2 {
+      text-align: center;
+      font-size: 48px;
+      margin: 0;
+      line-height: 1.16em;
       color: #0b0320;
     }
-    a {
-      display: block;
-      width: 40px;
-      height: 40px;
-      line-height: 46px;
-      border-radius: 50%;
-      text-align: center;
-      font-size: 23px;
-      color: #fff;
-      background-color: var(--color-1st);
+    .separator {
+      border-bottom: 1px solid #212121;
     }
   }
-  &:hover {
-    transform: translateY(-10px);
-    .feature-inner a.category-link {
-      background-color: #0b0320;
+  .feature-item {
+    margin-bottom: 32px;
+    position: relative;
+    .feature-img-cont {
+      margin-bottom: 28px;
+      a {
+        display: block;
+        overflow: hidden;
+      }
+      .feature-img {
+        width: 100%;
+        display: block;
+        transition: transform 0.25s ease-out;
+        transform: scale(1.06);
+        height: auto;
+      }
+      .text-overlay {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        font-size: 15px;
+        background-color: #fff;
+        padding: 7px 20px;
+        a {
+          color: #000;
+        }
+      }
+    }
+    .content {
+      h4 {
+        margin: 0;
+        color: #000;
+        font-size: 22px;
+        font-weight: 400;
+        line-height: 1.27em;
+        text-transform: uppercase;
+        font-family: "Roboto Condensed", sans-serif;
+        a {
+          color: inherit;
+          letter-spacing: 0.07em;
+        }
+      }
+      p {
+        margin: 10px 0;
+      }
+      .feature-btn-cont {
+        margin-top: 4px;
+        .feature-btn {
+          text-transform: uppercase;
+          font-size: 13px;
+          letter-spacing: 0.2em;
+          line-height: 1.95em;
+          color: #000;
+          font-weight: 400;
+          position: relative;
+          display: inline-block;
+          .feature-btn-text:before {
+            content: "";
+            height: 1px;
+            background-color: currentColor;
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            width: 17px;
+            margin: auto;
+            transition: width 0.2s ease-in-out;
+          }
+          &:hover .feature-btn-text:before {
+            width: calc(100% - 3px);
+          }
+        }
+      }
+    }
+    &:hover {
+      .feature-img-cont .feature-img {
+        transform: translate3d(3%, 0, 0) scale(1.06);
+      }
     }
   }
 }
