@@ -8,13 +8,17 @@ import { HeaderComponent } from './components/header/header.component';
 import { HeaderFixedDirective } from './directives/header-fixed.directive';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { ToggleClassDirective } from './directives/toggle-class.directive';
+import { ProductListComponent } from './pages/product-list/product-list.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderFixedDirective,
     HeaderComponent,
-    ToggleClassDirective
+    ToggleClassDirective,
+    ProductListComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
