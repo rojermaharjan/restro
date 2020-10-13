@@ -9,8 +9,16 @@
 </div>
 <div class="position-relative" style="z-index: 100;">
   <div class="pt-120 pb-50">
-    <div class="row">
-      <div class="page-content col-9">
+    <div class="row" style="margin: 0 -25px;">
+      <div class="page-content col-9" style="padding: 0 25px;">
+        <div class="d-flex justify-content-between align-items-center mb-32">
+          <div class="result-cont">
+            <p class="result-text">Showing xx-xx of xx results</p>
+          </div>
+          <div class="orderby-cont d-flex justify-content-end">
+            <app-select [options]="orderSelectItems" [styleGuide]="styleGuide"></app-select>
+          </div>
+        </div>
         <div class="product-list mb-12">
           <div class="row">
             <div class="product col-4 px-16 mb-32">
@@ -110,7 +118,85 @@
           </div>
         </div>
       </div>
-      <div class="sidebar col-3"></div>
+      <div class="sidebar col-3" style="padding: 0 25px;">
+        <div class="search">
+          <div class="input-cont has-btn">
+            <input type="search" placeholder="Type your search" value="" name="s" title="Search for:">
+            <button type="submit" class="input-btn">
+              <i aria-hidden="true" class="material-icons">search</i>
+            </button>
+          </div>
+        </div>
+        <div class="separator h-52"></div>
+        <div class="price-range-slider mb-20">
+          <div class="c-title-cont">
+            <h4 class="c-title">Filter</h4>
+          </div>
+          <ng5-slider [(value)]="value" [(highValue)]="highValue" [options]="priceRange"></ng5-slider>
+          <div class="d-flex align-items-center justify-content-between mt-32">
+            <div class="price-label">
+              Price:&nbsp;<span class="from"><span class="price-currency">$</span>{{value}}</span>&nbsp;—&nbsp;<span
+                class="from"><span class="price-currency">$</span>{{highValue}}</span>
+            </div>
+            <button class="black-btn solid" style="padding: 3px 21px;">Filter</button>
+          </div>
+        </div>
+        <div class="separator h-40"></div>
+        <div class="product-cat-list-cont">
+          <div class="c-title-cont">
+            <h4 class="c-title">Categories</h4>
+          </div>
+          <ul class="product-cat-list m-0 p-0">
+            <li class="cat-item mb-16">
+              <a href="javascript:void(0);" class="line-link">Bowls &amp; Terrines</a>
+            </li>
+            <li class="cat-item mb-16">
+              <a href="javascript:void(0);" class="line-link">Dining Sets</a>
+            </li>
+            <li class="cat-item mb-16">
+              <a href="javascript:void(0);" class="line-link">Saucers</a>
+            </li>
+            <li class="cat-item mb-16">
+              <a href="javascript:void(0);" class="line-link">Rim Plates</a>
+            </li>
+            <li class="cat-item mb-16">
+              <a href="javascript:void(0);" class="line-link">Platters</a>
+            </li>
+          </ul>
+        </div>
+        <div class="separator h-44"></div>
+        <div class="feature-product-cont">
+          <div class="c-title-cont">
+            <div class="c-title">latest products</div>
+          </div>
+          <div class="feature-product-list">
+            <div class="feature-product">
+              <div class="left">
+                <a href="javascript:void(0);" class="fp-image">
+                  <img src="/assets/img/shop-img-1.jpg">
+                </a>
+              </div>
+              <div class="right">
+                <div class="fp-title">
+                  <a href="javascript:void(0);">Square plate</a>
+                </div>
+                <div class="fp-rating">
+                  <div class="product-rating">
+                    <div class="star-rating">
+                      <span style="width: 100%;">
+                        Rated <strong class="rating">4.00</strong> out of 5
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="fp-price">
+                  <span class="price-currency">$</span>200
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

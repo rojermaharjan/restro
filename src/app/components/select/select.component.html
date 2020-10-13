@@ -1,0 +1,13 @@
+<div class="ng-select-wrapper" [class]="styleGuide?.selectClass" tabindex="0" (click)="active=!active"
+  [ngClass]="{'active':active, 'disabled': disable}">
+  <div class="ng-selected-option" [class]="styleGuide?.selectedOptionClass">
+    <input type="text" name="searchTerm" tabindex="-1" [formControl]="searchTerm" [readonly]="!isDatalist" #searchInput>
+    <span [class]="styleGuide?.caretClass" id="caret" [ngStyle]="{'right':positionRight}"
+      [ngClass]="{'icon':!styleGuide?.caretClass}"></span>
+  </div>
+  <ul [ngClass]="{'ng-dropdown-menu' : true}" [class]="styleGuide?.selectMenuClass">
+    <li *ngFor="let option of filterOptions" (click)="changeValue(option)" [class]="styleGuide?.optionsClass">
+      <span>{{option[displayKey] || option}}</span>
+    </li>
+  </ul>
+</div>

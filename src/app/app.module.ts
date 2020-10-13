@@ -1,15 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './pages/home/home.component';
+import { ProductListComponent } from './pages/product-list/product-list.component';
+import { SelectComponent } from './components/select/select.component';
 
 import { HeaderFixedDirective } from './directives/header-fixed.directive';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { ToggleClassDirective } from './directives/toggle-class.directive';
-import { ProductListComponent } from './pages/product-list/product-list.component';
-import { HomeComponent } from './pages/home/home.component';
+
+import { Ng5SliderModule } from 'ng5-slider';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 @NgModule({
   declarations: [
@@ -18,14 +22,18 @@ import { HomeComponent } from './pages/home/home.component';
     HeaderComponent,
     ToggleClassDirective,
     ProductListComponent,
-    HomeComponent
+    HomeComponent,
+    SelectComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
 
     // 3rd Party
-    SlickCarouselModule
+    SlickCarouselModule,
+    Ng5SliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
