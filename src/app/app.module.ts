@@ -14,6 +14,7 @@ import { ToggleClassDirective } from './directives/toggle-class.directive';
 
 import { Ng5SliderModule } from 'ng5-slider';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { ProductSingleComponent } from './pages/product-single/product-single.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     ToggleClassDirective,
     ProductListComponent,
     HomeComponent,
-    SelectComponent
+    SelectComponent,
+    ProductSingleComponent
   ],
   imports: [
     BrowserModule,

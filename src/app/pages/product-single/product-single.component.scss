@@ -1,0 +1,29 @@
+.product-single {
+  .product-images {
+    &.loaded {
+      .product-images {
+        opacity: 1;
+        transition: opacity 0.25s ease-in-out 0s;
+      }
+    }
+  }
+  .product-summary {
+    .product-title {
+      font-size: 48px;
+      line-height: 1.16em;
+      color: #000;
+      font-family: "Roboto Condensed", sans-serif;
+      font-weight: 400;
+      text-transform: uppercase;
+      display: block;
+      margin: 0 0 9px;
+    }
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .product-single {
+    .product-summary {
+      margin: 30px 0 0;
+    }
+  }
+}

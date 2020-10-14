@@ -382,6 +382,16 @@ img {
   }
 }
 
+.page-title {
+  z-index: 101;
+  background-color: #fbf9f9;
+}
+.breadcrumb {
+  font-size: 16px;
+  text-align: center;
+  color: #4e4e4e;
+}
+
 .c-title-cont {
   margin-bottom: 18px;
   .c-title {
@@ -392,7 +402,7 @@ img {
     text-transform: uppercase;
     font-size: 22px;
     line-height: 1.27em;
-    letter-spacing: .07em;
+    letter-spacing: 0.07em;
   }
 }
 
@@ -510,5 +520,37 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+}
+
+.product-rating {
+  position: relative;
+  width: 100%;
+  line-height: 1;
+
+  .star-rating {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+    font-family: "Material Icons";
+    font-size: 12px;
+    line-height: 1;
+    color: #c3c3c3;
+    -webkit-font-smoothing: antialiased;
+    &:before {
+      content: "star_outline star_outline star_outline star_outline star_outline";
+    }
+    span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      font-size: 0;
+      &:before {
+        content: "star star star star star";
+        font-size: 12px;
+      }
+    }
   }
 }
