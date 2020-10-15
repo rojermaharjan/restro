@@ -12,8 +12,7 @@
     <div class="product-single row" style="margin: 0 -25px;">
       <div class="product-images col-6">
         <div class="product-image">
-          <a href="/assets/img/shop-img-2.jpg">
-            <img src="/assets/img/shop-img-2.jpg" class="image">
+          <a href="/assets/img/shop-img-2.jpg" style="background-image: url('/assets/img/shop-img-2.jpg');">
           </a>
         </div>
       </div>
@@ -33,7 +32,40 @@
           <p>Sed viverra ipsum nunc aliquet bibendum enim facilisis gravida neque convallis an cras semper auctor neque
             vitae tempus quam pellentesque nec nam aliquam sem tortor consequat id porta nibh venenatis.</p>
         </div>
+        <div class="product-actions mt-52">
+          <div class="product-qty-btn mr-32">
+            <span class="qty-btn qty-minus" (click)="updateQty(false)">
+              <svg class="h-100-p" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                y="0px" viewBox="0 0 7.426 24.024" enable-background="new 0 0 7.426 24.024" xml:space="preserve">
+                <g>
+                  <polygon points="6.548,24.024 7.427,23.545 1.139,12.02 7.412,0.478 6.533,0 0,12.021 	"></polygon>
+                </g>
+              </svg>
+            </span>
+            <input type="text" class="qty-input" name="quantity" value="{{ productQty }}" title="Qty" size="4"
+              pattern="[0-9]*" inputmode="numeric">
+            <span class="qty-btn qty-plus" (click)="updateQty(true)">
+              <svg class="h-100-p" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                y="0px" viewBox="0 0 7.426 24.024" enable-background="new 0 0 7.426 24.024" xml:space="preserve">
+                <g>
+                  <polygon points="0.878,24.024 0,23.545 6.288,12.02 0.015,0.478 0.894,0 7.426,12.021 	"></polygon>
+                </g>
+              </svg>
+            </span>
+          </div>
+          <button class="black-btn solid">
+            <div class="btn-text">Lorem ipsum</div>
+          </button>
+        </div>
+        <div class="product-meta mt-52">
+          <p class="meta-text">SKU: <span class="meta-value">002</span></p>
+          <p class="meta-text">Category: <span class="meta-value">Dining Sets</span></p>
+          <p class="meta-text">Tags: <span class="meta-value">Brunch, Buffet</span></p>
+        </div>
       </div>
+    </div>
+    <div class="tabs-cont">
+
     </div>
   </div>
 </div>
