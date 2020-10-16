@@ -260,6 +260,27 @@ ul {
 img {
   width: 100%;
 }
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  vertical-align: middle;
+  width: 100%;
+  border: none;
+}
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr,
+tt {
+  background: 0 0;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+  outline: 0;
+}
 
 //General
 ::selection {
@@ -390,6 +411,42 @@ img {
   font-size: 16px;
   text-align: center;
   color: #4e4e4e;
+}
+
+.tabs {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  .tab .tab-link {
+    position: relative;
+    padding: 13px 64px 13px 0;
+    display: block;
+    font-size: 12px;
+    line-height: 25px;
+    font-weight: 400;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: #000;
+    &:before {
+      content: "";
+      opacity: 0;
+      height: 1px;
+      background-color: currentColor;
+      position: absolute;
+      bottom: 14px;
+      left: 0;
+      width: 0;
+      margin: auto;
+      transition: width 0.2s ease-in-out;
+    }
+    &.active {
+      &:before {
+        opacity: 1;
+        width: 17px;
+      }
+    }
+  }
 }
 
 .c-title-cont {

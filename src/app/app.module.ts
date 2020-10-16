@@ -15,6 +15,7 @@ import { ToggleClassDirective } from './directives/toggle-class.directive';
 import { Ng5SliderModule } from 'ng5-slider';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { ProductSingleComponent } from './pages/product-single/product-single.component';
+import { TabsModule } from './components/tab/tabs.module';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { ProductSingleComponent } from './pages/product-single/product-single.co
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    TabsModule,
 
     // 3rd Party
     SlickCarouselModule,

@@ -64,8 +64,71 @@
         </div>
       </div>
     </div>
-    <div class="tabs-cont">
-
+    <div class="product-tabs-cont mt-44">
+      <app-tabs #tabs>
+        <app-tab-content #description tabTitle="description">
+          <div class="row">
+            <div class="col">
+              <p class="m-0 mt-12">
+                Fames ac turpis egestas sed tempus urna et pharetra pharetra massa massa ultricies mi quis hendrerit
+                dolor magna eget est lorem ipsum dolor sit amet consectetur adipiscing elit aneis pellentesqu habitant
+                morbi tristique senectus et netus et malesuada fames ac egestas integer eget aliquet nibh praesent
+                tristique magna sit amet purus gravida quis blandit turpis cursus in hac habitasse platea dictumst
+                quisque sagittis purus sit.
+              </p>
+            </div>
+          </div>
+        </app-tab-content>
+        <app-tab-content #additionalInformation tabTitle="additional information">
+          <table class="product-attributes">
+            <tbody>
+              <tr>
+                <th>Weight</th>
+                <td>1.5 kg</td>
+              </tr>
+              <tr>
+                <th>Dimensions</th>
+                <td>16.5 x 21.5 x 2 cm</td>
+              </tr>
+            </tbody>
+          </table>
+        </app-tab-content>
+        <app-tab-content #reviews tabTitle="reviews (2)">
+          <div class="product-reviews">
+            <div class="comments">
+              <h2 class="comment-title">2 reviews for <span>White Plate</span></h2>
+              <ol class="comment-list">
+                <li class="comment">
+                  <div class="comment-inner">
+                    <img src="/assets/img/avatar-1.jpg" alt="" class="avatar">
+                    <div class="comment-text">
+                      <div class="product-rating" style="line-height: 26px;">
+                        <div class="star-rating">
+                          <span style="width: 100%;">
+                            Rated <strong class="rating">4.00</strong> out of 5
+                          </span>
+                        </div>
+                      </div>
+                      <p class="meta">
+                        <strong class="author">Lorem Ipsum</strong>
+                        <span class="dash"> – </span>
+                        <time class="published-date">07.06.2018</time>
+                      </p>
+                      <div class="desc">
+                        <p>
+                          Doming civibus sensibus ei nec, an justo oportere praesent eos. An per tale vivendo. Te qui
+                          postea iriure adipiscing, sed ne harum persius civibus. Vix legere cetero recteque ex. Est
+                          nihil soluta ancillae id, at nonumy cetero elaboraret per, in etiam essent cum.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </app-tab-content>
+      </app-tabs>
     </div>
   </div>
 </div>
