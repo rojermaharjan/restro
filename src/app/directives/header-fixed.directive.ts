@@ -12,7 +12,6 @@ export class HeaderFixedDirective {
   onScroll(): void {
     const pos = window.scrollY;
     this.headerHeight = this.el.offsetHeight;
-    console.log(pos, this.headerHeight);
     if (pos >= this.headerHeight - 25) {
       this.el.classList.add(this.className);
     }

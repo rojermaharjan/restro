@@ -41,7 +41,7 @@
   <div class="main">
     <div class="main-overlay" (click)="toggleSidearea(true)"></div>
     <div class="main-inner w-100-p overflow-h">
-      <header class="header position-relative z-10 w-100-p" appHeaderFixed>
+      <header class="header z-10 w-100-p" appHeaderFixed>
         <div class="menu fixed d-flex align-items-center w-100-p" style="height: 125px;">
           <div class="left d-flex align-items-center" style="flex: 100%;">
             <div class="left-widget d-flex align-items">
@@ -140,72 +140,51 @@
         </div>
       </header>
       <header class="mobile-header d-md-none">
-        <div class="mobile-header-inner" style="height: inherit;">
-          <div class="grid position-relative h-100-p">
-            <div class="mobile-menu-opener d-flex justify-content-center align-items-center position-absolute h-100-p">
-              <a href="javascript:void(0);" class="cursor-pointer">
-                <span class="material-icons" style="color: #000;">menu</span>
-              </a>
-            </div>
-            <div
-              class="center position-absolute w-100-p text-center d-flex justify-content-center align-items-center h-100-p">
-              <div class="mobile-logo-wrapper">
-                <a href="" class="d-block" style="height: 26px;">
-                  <img src="/assets/img/logo-mobile-1.png" alt="" class="h-100-p">
+        <div class="mobile-header-inner">
+          <div class="mobile-header-bar">
+            <div class="grid position-relative h-100-p">
+              <div
+                class="mobile-menu-opener d-flex justify-content-center align-items-center position-absolute h-100-p z-1"
+                (click)="isMobileNavOpen = !isMobileNavOpen">
+                <a href="javascript:void(0);" class="cursor-pointer">
+                  <span class="material-icons" style="color: #000;">menu</span>
                 </a>
               </div>
+              <div
+                class="center position-absolute w-100-p text-center d-flex justify-content-center align-items-center h-100-p">
+                <div class="mobile-logo-wrapper">
+                  <a href="" class="d-block" style="height: 26px;">
+                    <img src="/assets/img/logo-mobile-1.png" alt="" class="h-100-p">
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mobile-nav" [ngClass]="{'active': isMobileNavOpen}">
+            <div class="grid">
+              <ul class="mobile-menu m-0 p-0">
+                <li class="mobile-menu-item position-relative" appToggleClass>
+                  <a href="javascript:void(0);" class="pl-4 py-8">
+                    <span>Home</span>
+                  </a>
+                  <span class="arrow position-absolute">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                  </span>
+                  <ul class="mobile-sub-menu m-0 p-0 ml-16">
+                    <li class="mobile-menu-item">
+                      <a href="">
+                        <span>Lorem</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
       </header>
       <div class="content">
-        <div class="main-slider slider-1">
-          <div class="slider-overlay">
-            <img src="/assets/img/11.png" alt="Slider Overlay" class="d-none d-lg-block">
-          </div>
-          <ngx-slick-carousel class="offer-slider" #slickModal="slick-carousel" [config]="sliderConfig">
-            <div ngxSlickItem *ngFor="let slide of slides" class="slider-item">
-              <div class="slider-inner">
-                <div class="container">
-                  <div class="d-flex flex-wrap align-items-center">
-                    <div class="w-50-p text-right pr-64">
-                      <h1 class="title">Truly Italian</h1>
-                      <h4 class="subtitle">Pepperoni Pizza With Thin Crust</h4>
-                      <p class="text">
-                        Lorem Ipsum is simply dummy text of the printing and
-                        typesetting industry. Lorem Ipsum has been the industry's standard
-                      </p>
-                      <div class="slider-icons-wrapper justify-content-end">
-                        <div class="slider-icon">
-                          <i class="material-icons">local_fire_department</i>
-                          <div class="slider-icon-body">
-                            <h5>480</h5><span>Calories</span>
-                          </div>
-                        </div>
-                        <div class="slider-icon">
-                          <i class="material-icons">restaurant</i>
-                          <div class="slider-icon-body">
-                            <h5>120g</h5><span>Lorem, ipsum.</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="slider-controls justify-content-end">
-                        <a href="#" class="slider-btn" tabindex="-1">
-                          <span>Order</span>
-                          <i class="material-icons">shopping_bag</i>
-                        </a>
-                        <h4>$10.99</h4>
-                      </div>
-                    </div>
-                    <div class="w-50-p p-24">
-                      <img src="{{ slide.src }}" alt="" width="100%">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </ngx-slick-carousel>
-        </div>
+        <router-outlet></router-outlet>
       </div>
     </div>
   </div>

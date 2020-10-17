@@ -1,0 +1,224 @@
+<div class="main-slider slider-1">
+  <div class="slider-overlay">
+    <img src="/assets/img/11.png" alt="Slider Overlay" class="d-none d-lg-block">
+  </div>
+  <ngx-slick-carousel class="offer-slider" #slickModal="slick-carousel" [config]="sliderConfig">
+    <div ngxSlickItem *ngFor="let slide of slides" class="slider-item">
+      <div class="slider-inner">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-xl-6 col-lg-6 slider-content">
+              <h1 class="title">Truly Italian</h1>
+              <h4 class="subtitle">Pepperoni Pizza With Thin Crust</h4>
+              <p class="text">
+                Lorem Ipsum is simply dummy text of the printing and
+                typesetting industry. Lorem Ipsum has been the industry's standard
+              </p>
+              <div class="slider-icons-wrapper">
+                <div class="slider-icon">
+                  <i class="material-icons">local_fire_department</i>
+                  <div class="slider-icon-body">
+                    <h5>480</h5><span>Calories</span>
+                  </div>
+                </div>
+                <div class="slider-icon">
+                  <i class="material-icons">restaurant</i>
+                  <div class="slider-icon-body">
+                    <h5>120g</h5><span>Lorem, ipsum.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="slider-controls">
+                <a href="#" class="slider-btn" tabindex="-1">
+                  <span>Order</span>
+                  <i class="material-icons">shopping_bag</i>
+                </a>
+                <h4>$10.99</h4>
+              </div>
+            </div>
+            <div class="col-xl-6 col-lg-6  slider-image">
+              <img src="{{ slide.src }}" alt="" width="100%">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ngx-slick-carousel>
+</div>
+<section class="featured-area mb-72">
+  <div class="container">
+    <div class="section-title mb-48">
+      <h2>Featured Categories</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum natus beatae nesciunt provident, sapiente
+        in, consequuntur dolore asperiores numquam quia dicta harum illum non accusantium quis aperiam id enim
+        odio.
+      </p>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 col-lg-4">
+        <div class="feature-item">
+          <img src="/assets/img/feature1.jpg" alt="Feature">
+          <div class="feature-inner">
+            <div class="feature-btn">
+              <div class="feature-icon">
+                <img src="/assets/img/feature1.png" alt="Feature">
+              </div>
+              <div class="feature-text">
+                <span>Fast Food</span>
+              </div>
+              <div class="feature-link-cont">
+                <a routerlink="/" href="/" class="feature-link">
+                  <i class="material-icons">keyboard_arrow_right</i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4">
+        <div class="feature-item">
+          <img src="/assets/img/feature1.jpg" alt="Feature">
+          <div class="feature-inner">
+            <div class="feature-btn">
+              <div class="feature-icon">
+                <img src="/assets/img/feature1.png" alt="Feature">
+              </div>
+              <div class="feature-text">
+                <span>Fast Food</span>
+              </div>
+              <div class="feature-link-cont">
+                <a routerlink="/" href="/" class="feature-link">
+                  <i class="material-icons">keyboard_arrow_right</i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4">
+        <div class="feature-item">
+          <img src="/assets/img/feature1.jpg" alt="Feature">
+          <div class="feature-inner">
+            <div class="feature-btn">
+              <div class="feature-icon">
+                <img src="/assets/img/feature1.png" alt="Feature">
+              </div>
+              <div class="feature-text">
+                <span>Fast Food</span>
+              </div>
+              <div class="feature-link-cont">
+                <a routerlink="/" href="/" class="feature-link">
+                  <i class="material-icons">keyboard_arrow_right</i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="featured-area-2 mb-72">
+  <div class="container">
+    <div class="section-title">
+      <h2>Andé Blog</h2>
+      <div class="separator-cont text-center">
+        <div class="separator mt-44 mb-32 mx-auto" style="width: 80px; border-bottom-width: 2px;"></div>
+      </div>
+    </div>
+    <div class="h-24"></div>
+    <div class="row">
+      <div class="col-sm-6 col-lg-4">
+        <div class="feature-item">
+          <div class="feature-img-cont">
+            <a itemprop="url" routerLink="/" title="Lorem">
+              <img src="/assets/img/h1-post-1.jpg" alt="" class="feature-img">
+            </a>
+            <div itemprop="dateCreated" class="text-overlay">
+              <a itemprop="url" href="">11.10.2020</a>
+              <meta itemprop="interactionCount" content="UserComments: 0">
+            </div>
+          </div>
+          <div class="content">
+            <h4 itemprop="name" class="feature-title">
+              <a itemprop="url" routerLink="/" title="Title">Garlic Pasta</a>
+            </h4>
+            <div>
+              <div class="excerpt-cont">
+                <p itemprop="description" class="excerpt">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                </p>
+              </div>
+              <div class="feature-btn-cont">
+                <a itemprop="url" routerLink="/" target="_self" class="feature-btn">
+                  <span class="feature-btn-text">DISCOVER</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4">
+        <div class="feature-item">
+          <div class="feature-img-cont">
+            <a itemprop="url" routerLink="/" title="Lorem">
+              <img src="/assets/img/h1-post-1.jpg" alt="" class="feature-img">
+            </a>
+            <div itemprop="dateCreated" class="text-overlay">
+              <a itemprop="url" href="">11.10.2020</a>
+              <meta itemprop="interactionCount" content="UserComments: 0">
+            </div>
+          </div>
+          <div class="content">
+            <h4 itemprop="name" class="feature-title">
+              <a itemprop="url" routerLink="/" title="Title">Garlic Pasta</a>
+            </h4>
+            <div>
+              <div class="excerpt-cont">
+                <p itemprop="description" class="excerpt">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                </p>
+              </div>
+              <div class="feature-btn-cont">
+                <a itemprop="url" routerLink="/" target="_self" class="feature-btn">
+                  <span class="feature-btn-text">DISCOVER</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4">
+        <div class="feature-item">
+          <div class="feature-img-cont">
+            <a itemprop="url" routerLink="/" title="Lorem">
+              <img src="/assets/img/h1-post-1.jpg" alt="" class="feature-img">
+            </a>
+            <div itemprop="dateCreated" class="text-overlay">
+              <a itemprop="url" href="">11.10.2020</a>
+              <meta itemprop="interactionCount" content="UserComments: 0">
+            </div>
+          </div>
+          <div class="content">
+            <h4 itemprop="name" class="feature-title">
+              <a itemprop="url" routerLink="/" title="Title">Garlic Pasta</a>
+            </h4>
+            <div>
+              <div class="excerpt-cont">
+                <p itemprop="description" class="excerpt">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                </p>
+              </div>
+              <div class="feature-btn-cont">
+                <a itemprop="url" routerLink="/" target="_self" class="feature-btn">
+                  <span class="feature-btn-text">DISCOVER</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -2,208 +2,16 @@
 @import "~slick-carousel/slick/slick.scss";
 @import "~slick-carousel/slick/slick-theme.scss";
 
-// @Functions
-@mixin _assert-ascending($map, $map-name) {
-  $prev-key: null;
-  $prev-num: null;
-  @each $key, $num in $map {
-    @if $prev-num == null or unit($num) == "%" {
-      // Do nothing
-    } @else if not comparable($prev-num, $num) {
-      @warn "Potentially invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} whose unit makes it incomparable to #{$prev-num}, the value of the previous key '#{$prev-key}' !";
-    } @else if $prev-num >= $num {
-      @warn "Invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} which isn't greater than #{$prev-num}, the value of the previous key '#{$prev-key}' !";
-    }
-    $prev-key: $key;
-    $prev-num: $num;
-  }
-}
+// Bootstrap Required
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
 
-// Starts at zero
-// Used to ensure the min-width of the lowest breakpoint starts at 0.
-@mixin _assert-starts-at-zero($map, $map-name: "$grid-breakpoints") {
-  $values: map-values($map);
-  $first-value: nth($values, 1);
-  @if $first-value != 0 {
-    @warn "First breakpoint in #{$map-name} must start at 0, but starts at #{$first-value}.";
-  }
-}
-
-// @Variables
-$displays: none, inline, inline-block, block, table, table-row, table-cell, flex, inline-flex !default;
-$grid-breakpoints: (
-  xs: 0,
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px,
-) !default;
-
-@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
-@include _assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
-
-// @Mixins
-// Breakpoint
-@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
-  $min: map-get($breakpoints, $name);
-  @return if($min != 0, $min, null);
-}
-@function breakpoint-infix($name, $breakpoints: $grid-breakpoints) {
-  @return if(breakpoint-min($name, $breakpoints) == null, "", "-#{$name}");
-}
-@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
-  $min: breakpoint-min($name, $breakpoints);
-  @if $min {
-    @media (min-width: $min) {
-      @content;
-    }
-  } @else {
-    @content;
-  }
-}
-
-// @Utilities
-// Display
-@each $breakpoint in map-keys($grid-breakpoints) {
-  @include media-breakpoint-up($breakpoint) {
-    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
-
-    @each $value in $displays {
-      .d#{$infix}-#{$value} {
-        display: $value;
-      }
-    }
-  }
-}
-
-// Flex
-@each $breakpoint in map-keys($grid-breakpoints) {
-  @include media-breakpoint-up($breakpoint) {
-    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
-
-    .flex#{$infix}-row {
-      flex-direction: row;
-    }
-    .flex#{$infix}-column {
-      flex-direction: column;
-    }
-    .flex#{$infix}-row-reverse {
-      flex-direction: row-reverse;
-    }
-    .flex#{$infix}-column-reverse {
-      flex-direction: column-reverse;
-    }
-
-    .flex#{$infix}-wrap {
-      flex-wrap: wrap;
-    }
-    .flex#{$infix}-nowrap {
-      flex-wrap: nowrap;
-    }
-    .flex#{$infix}-wrap-reverse {
-      flex-wrap: wrap-reverse;
-    }
-    .flex#{$infix}-fill {
-      flex: 1 1 auto;
-    }
-    .flex#{$infix}-grow-0 {
-      flex-grow: 0;
-    }
-    .flex#{$infix}-grow-1 {
-      flex-grow: 1;
-    }
-    .flex#{$infix}-shrink-0 {
-      flex-shrink: 0;
-    }
-    .flex#{$infix}-shrink-1 {
-      flex-shrink: 1;
-    }
-
-    .justify-content#{$infix}-start {
-      justify-content: flex-start;
-    }
-    .justify-content#{$infix}-end {
-      justify-content: flex-end;
-    }
-    .justify-content#{$infix}-center {
-      justify-content: center;
-    }
-    .justify-content#{$infix}-between {
-      justify-content: space-between;
-    }
-    .justify-content#{$infix}-around {
-      justify-content: space-around;
-    }
-
-    .align-items#{$infix}-start {
-      align-items: flex-start;
-    }
-    .align-items#{$infix}-end {
-      align-items: flex-end;
-    }
-    .align-items#{$infix}-center {
-      align-items: center;
-    }
-    .align-items#{$infix}-baseline {
-      align-items: baseline;
-    }
-    .align-items#{$infix}-stretch {
-      align-items: stretch;
-    }
-
-    .align-content#{$infix}-start {
-      align-content: flex-start;
-    }
-    .align-content#{$infix}-end {
-      align-content: flex-end;
-    }
-    .align-content#{$infix}-center {
-      align-content: center;
-    }
-    .align-content#{$infix}-between {
-      align-content: space-between;
-    }
-    .align-content#{$infix}-around {
-      align-content: space-around;
-    }
-    .align-content#{$infix}-stretch {
-      align-content: stretch;
-    }
-
-    .align-self#{$infix}-auto {
-      align-self: auto;
-    }
-    .align-self#{$infix}-start {
-      align-self: flex-start;
-    }
-    .align-self#{$infix}-end {
-      align-self: flex-end;
-    }
-    .align-self#{$infix}-center {
-      align-self: center;
-    }
-    .align-self#{$infix}-baseline {
-      align-self: baseline;
-    }
-    .align-self#{$infix}-stretch {
-      align-self: stretch;
-    }
-  }
-}
-
-// Position utils
-.position-relative {
-  position: relative;
-}
-.position-absolute {
-  position: absolute;
-}
-.position-static {
-  position: static;
-}
-.position-fixed {
-  position: fixed;
-}
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/utilities/display";
+@import "~bootstrap/scss/utilities/flex";
+@import "~bootstrap/scss/utilities/overflow";
+@import "~bootstrap/scss/utilities/position";
 
 // Size
 @each $prop, $abbrev in (height: h, width: w) {
@@ -398,35 +206,6 @@ $grid-breakpoints: (
   }
 }
 
-//Container
-.container {
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
-@media (min-width: 576px) {
-  .container {
-    max-width: 540px;
-  }
-}
-@media (min-width: 768px) {
-  .container {
-    max-width: 720px;
-  }
-}
-@media (min-width: 992px) {
-  .container {
-    max-width: 960px;
-  }
-}
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1140px;
-  }
-}
-
 // @ Normalize
 * {
   text-rendering: optimizeLegibility;
@@ -458,7 +237,8 @@ a {
   -webkit-transition: color 0.2s ease-out;
   -moz-transition: color 0.2s ease-out;
   transition: color 0.2s ease-out;
-  &:focus, &:hover {
+  &:focus,
+  &:hover {
     text-decoration: none;
     outline: none;
   }
@@ -475,6 +255,30 @@ ul {
   list-style: none;
 }
 [tabindex="0"]:focus {
+  outline: 0;
+}
+img {
+  width: 100%;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  vertical-align: middle;
+  width: 100%;
+  border: none;
+}
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr,
+tt {
+  background: 0 0;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
   outline: 0;
 }
 
@@ -574,4 +378,236 @@ ul {
 }
 .material-icons.md-light.md-inactive {
   color: rgba(255, 255, 255, 0.3);
+}
+
+:root {
+  --color-1st: #f39220;
+}
+
+.line-link {
+  position: relative;
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    transform-origin: left;
+    background-color: currentColor;
+    transform: scale(0, 1);
+    transition: transform 0.25s ease-out;
+  }
+  &:hover:after {
+    transform: scale(1, 1);
+  }
+}
+
+.page-title {
+  z-index: 101;
+  background-color: #fbf9f9;
+}
+.breadcrumb {
+  font-size: 16px;
+  text-align: center;
+  color: #4e4e4e;
+}
+
+.tabs {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  .tab .tab-link {
+    position: relative;
+    padding: 13px 64px 13px 0;
+    display: block;
+    font-size: 12px;
+    line-height: 25px;
+    font-weight: 400;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: #000;
+    &:before {
+      content: "";
+      opacity: 0;
+      height: 1px;
+      background-color: currentColor;
+      position: absolute;
+      bottom: 14px;
+      left: 0;
+      width: 0;
+      margin: auto;
+      transition: width 0.2s ease-in-out;
+    }
+    &.active {
+      &:before {
+        opacity: 1;
+        width: 17px;
+      }
+    }
+  }
+}
+
+.c-title-cont {
+  margin-bottom: 18px;
+  .c-title {
+    color: #000;
+    margin: 0;
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 22px;
+    line-height: 1.27em;
+    letter-spacing: 0.07em;
+  }
+}
+
+.select-1 {
+  min-width: 250px;
+  display: block;
+  height: 46px;
+  line-height: 44px;
+  font-family: inherit;
+  font-size: 14px;
+  color: inherit;
+  box-sizing: border-box;
+  cursor: pointer;
+  user-select: none;
+  .selected-option {
+    border: 1px solid #a7a7a7;
+    input {
+      display: block;
+      padding: 0 30px 0 16px;
+      color: inherit;
+      line-height: inherit;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      cursor: pointer;
+      font-size: 14px;
+    }
+  }
+  .caret {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 10%;
+    height: 100%;
+    top: 0;
+    right: 16px;
+    line-height: inherit;
+    color: #a7a7a7;
+    &::after {
+      content: "▼";
+      text-align: center;
+    }
+  }
+  .dropdown {
+    top: 90%;
+    font-size: 14px;
+    padding: 2px 15px;
+    margin: 5px 0;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #a7a7a7;
+    border-top-color: transparent;
+  }
+  &.active .caret {
+    top: 50%;
+  }
+}
+
+.price-range-slider {
+  .ng5-slider {
+    margin-top: 24px;
+    margin-bottom: 0;
+    .ng5-slider-pointer {
+      background: #000;
+      height: 7px;
+      width: 7px;
+      top: -3px;
+      border-radius: 0px;
+      &::after {
+        content: none;
+      }
+    }
+    .ng5-slider-bar {
+      height: 2px;
+      background-color: #e5e5e5;
+    }
+    .ng5-slider-selection {
+      background-color: #000;
+    }
+  }
+  .price-label {
+    font-size: 12px;
+    color: #4e4e4e;
+    text-transform: uppercase;
+    margin: 5px 0 0;
+  }
+}
+
+.input-cont {
+  border-color: #a7a7a7;
+  border-style: solid;
+  border-width: 1px;
+  display: flex;
+  input {
+    display: flex;
+    background-color: transparent;
+    border: 0;
+    box-sizing: border-box;
+    color: #000;
+    height: 43px;
+    outline: 0;
+    position: relative;
+    font-size: 14px;
+  }
+  &.has-btn {
+    input {
+      width: calc(100% - 43px);
+      padding: 0 0 0 15px;
+    }
+  }
+  .input-btn {
+    width: 43px;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.product-rating {
+  position: relative;
+  width: 100%;
+  line-height: 1;
+
+  .star-rating {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+    font-family: "Material Icons";
+    font-size: 12px;
+    line-height: 1;
+    color: #c3c3c3;
+    -webkit-font-smoothing: antialiased;
+    &:before {
+      content: "star_outline star_outline star_outline star_outline star_outline";
+    }
+    span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      font-size: 0;
+      &:before {
+        content: "star star star star star";
+        font-size: 12px;
+      }
+    }
+  }
 }
