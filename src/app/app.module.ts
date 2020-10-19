@@ -16,6 +16,7 @@ import { Ng5SliderModule } from 'ng5-slider';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { ProductSingleComponent } from './pages/product-single/product-single.component';
 import { TabsModule } from './components/tab/tabs.module';
+import { ItemCardOneComponent } from './components/item-card-one/item-card-one.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { TabsModule } from './components/tab/tabs.module';
     ProductListComponent,
     HomeComponent,
     SelectComponent,
-    ProductSingleComponent
+    ProductSingleComponent,
+    ItemCardOneComponent
   ],
   imports: [
     BrowserModule,

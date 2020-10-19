@@ -10,13 +10,13 @@
 <div class="position-relative" style="z-index: 100;">
   <div class="container pt-120 pb-50 px-0">
     <div class="product-single row" style="margin: 0 -25px;">
-      <div class="product-images col-6">
+      <div class="product-images col-sm-6">
         <div class="product-image">
           <a href="/assets/img/shop-img-2.jpg" style="background-image: url('/assets/img/shop-img-2.jpg');">
           </a>
         </div>
       </div>
-      <div class="product-summary col-6">
+      <div class="product-summary col-sm-6">
         <div class="product-title">White Plate</div>
         <p class="price" style="font-size: 20px;">
           <span class="price-currency">$</span>85
@@ -126,9 +126,52 @@
                 </li>
               </ol>
             </div>
+            <div class="comment-form-cont mt-16">
+              <div class="comment-title">
+                Add a review
+              </div>
+              <form action="" class="comment-form">
+                <p class="comment-notes">
+                  <span id="email-notes">Your email address will not be published.</span>
+                  Required fields are marked <span class="required">*</span>
+                </p>
+                <div class="comment-rating product">
+                  <label for="rating">Your rating</label>
+                  <div class="star-rating">
+                    <span style="width: 100%;">
+                      Rated <strong class="rating">4.00</strong> out of 5
+                    </span>
+                  </div>
+                </div>
+                <p class="comment-form-comment">
+                  <label for="comment">Your review&nbsp;<span class="required">*</span></label>
+                  <textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" required=""></textarea>
+                </p>
+                <p class="comment-form-author">
+                  <label for="author">Name&nbsp;<span class="required">*</span></label>
+                  <input id="author" name="author" type="text" value="" size="30" aria-required="true" required="">
+                </p>
+                <p class="comment-form-email">
+                  <label for="email">Email&nbsp;<span class="required">*</span></label>
+                  <input id="email" name="email" type="email" value="" size="30" aria-required="true" required="">
+                </p>
+                <p class="comment-submit">
+                  <button class="black-btn solid">submit</button>
+                </p>
+              </form>
+            </div>
           </div>
         </app-tab-content>
       </app-tabs>
+    </div>
+    <div class="related-products pt-40">
+      <h2 class="title">related products</h2>
+      <div class="row">
+        <app-item-card-one class="col-sm-3"></app-item-card-one>
+        <app-item-card-one class="col-sm-3"></app-item-card-one>
+        <app-item-card-one class="col-sm-3"></app-item-card-one>
+        <app-item-card-one class="col-sm-3"></app-item-card-one>
+      </div>
     </div>
   </div>
 </div>

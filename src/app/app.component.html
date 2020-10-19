@@ -81,7 +81,8 @@
             <div class="center-inner">
               <div class="logo-wrapper pb-4">
                 <a href="">
-                  <img src="/assets/img/logo-default-1.png" alt="" class="normal-logo" style="height: 36px;">
+                  <img src="/assets/img/logo-default-1.png" alt="" class="normal-logo"
+                    style="height: 36px; width: 100%;">
                   <!-- <img src="" alt="" class="dark-logo">
                   <img src="" alt="" class="light-logo"> -->
                 </a>
@@ -146,17 +147,16 @@
               <div
                 class="mobile-menu-opener d-flex justify-content-center align-items-center position-absolute h-100-p z-1"
                 (click)="isMobileNavOpen = !isMobileNavOpen">
-                <a href="javascript:void(0);" class="cursor-pointer">
+                <a href="javascript:void(0);" class="cursor-pointer d-flex">
                   <span class="material-icons" style="color: #000;">menu</span>
                 </a>
               </div>
               <div
-                class="center position-absolute w-100-p text-center d-flex justify-content-center align-items-center h-100-p">
-                <div class="mobile-logo-wrapper">
-                  <a href="" class="d-block" style="height: 26px;">
-                    <img src="/assets/img/logo-mobile-1.png" alt="" class="h-100-p">
-                  </a>
-                </div>
+                class="position-absolute w-100-p text-center d-flex justify-content-center align-items-center h-100-p">
+                <a routerLink="/" class="d-block w-100-p" style="height: 26px;background-image: url('/assets/img/logo-mobile-1.png'); background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;">
+                </a>
               </div>
             </div>
           </div>
@@ -185,6 +185,62 @@
       </header>
       <div class="content">
         <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+  <div class="footer-root">
+    <div class="footer-top-cont">
+      <div class="footer-inner">
+        <div class="row text-center">
+          <div class="col-12">
+            <div class="separator h-52"></div>
+            <div class="footer-logo mb-20">
+              <a routerLink="/">
+                <img src="/assets/img/footer-logo.png" alt="" width="32">
+              </a>
+            </div>
+            <div class="separator h-24"></div>
+            <div class="address-cont">
+              <p>
+                <a class="line-link" href="https://www.google.com/maps/" target="_blank"
+                  rel="noopener; noopener noreferrer">
+                  Some Restaurant 123 4th Avenue,</a></p>
+              <p>
+                <a class="line-link" href="https://www.google.com/maps/" target="_blank"
+                  rel="noopener; noopener noreferrer">
+                  New York 10021, USA
+                </a>
+              </p>
+              <p><a class="line-link" href="tel:+000123456789">+00 01 23 456 789</a></p>
+              <p><a class="line-link" href="mailto:email@example.com">email@example.com</a></p>
+              <p>Open 08:00 - 22:00 </p>
+            </div>
+            <div class="separator h-24"></div>
+            <div class="social-cont">
+              <a class="line-link mr-36" href="https://www.facebook.com" target="_blank">
+                <span>Facebook</span>
+              </a>
+              <a class="line-link mr-36" href="https://www.instagram.com" target="_blank">
+                <span>Instagram</span>
+              </a>
+              <a class="line-link" href="https://www.tripadvisor.com" target="_blank">
+                <span>Trip Advisor</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bot-cont">
+      <div class="grid">
+        <div class="row">
+          <div class="col-12">
+            <p>
+              All rights reserved <a style="color: #4e4e4e;">© </a>
+              <a href="" target="_blank" class="link-link" style="color: #4e4e4e;" rel="noopener noreferrer">Rojer Maharjan</a>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
