@@ -288,6 +288,9 @@ tt {
   background: #000;
   color: #fff;
 }
+.cdk-global-scrollblock body {
+  overflow: hidden;
+}
 .black-btn {
   position: relative;
   width: auto;
@@ -619,3 +622,6 @@ tt {
     }
   }
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
