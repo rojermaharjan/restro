@@ -577,6 +577,23 @@ tt {
     position: relative;
     font-size: 14px;
   }
+  textarea {
+    border: 0;
+    position: relative;
+    width: 100%;
+    padding: 12px 18px;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 19px;
+    font-weight: 300;
+    color: #000;
+    background-color: transparent;
+    border-radius: 0;
+    outline: 0;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease-in-out;
+  }
   &.has-btn {
     input {
       width: calc(100% - 43px);
@@ -623,5 +640,11 @@ tt {
   }
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

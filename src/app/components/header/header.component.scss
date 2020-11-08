@@ -8,7 +8,7 @@
     position: fixed;
     left: 0;
     padding: 0 84px;
-    z-index: 1200;
+    z-index: 1001;
     background: #fff;
     box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
   }
@@ -16,7 +16,7 @@
 
 .mobile-header {
   position: relative;
-  z-index: 1200;
+  z-index: 1001;
   .mobile-header-inner {
     height: 70px;
     background-color: #fff;

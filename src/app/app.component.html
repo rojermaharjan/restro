@@ -39,7 +39,7 @@
     </div>
   </section>
   <div class="main">
-    <div class="main-overlay" (click)="toggleSidearea(true)"></div>
+    <div *ngIf="isSideareaOpen" class="main-overlay" (click)="toggleSidearea(true)"></div>
     <div class="main-inner w-100-p overflow-h">
       <app-header [isSideareaOpen]="isSideareaOpen" (toggleSidearea)="toggleSidearea()"></app-header>
       <div class="content">
