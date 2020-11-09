@@ -204,3 +204,37 @@
     transform: scale(1, 1);
   }
 }
+
+.header-top {
+  padding: 8px 0;
+  .left, .right {
+    display: flex;
+  }
+  .left a {
+    align-items: center;
+    display: flex;
+    line-height: 31px;
+  }
+  .right {
+    justify-content: flex-end;
+  }
+  .social {
+    margin: 0 8px;
+    a {
+      display: block;
+      width: 24px;
+      height: 24px;
+      i {
+        font-size: 24px;
+      }
+      img {
+        width: inherit;
+        height: inherit;
+      }
+    }
+  }
+}
+
+.header.fixed .header-top {
+  display: none !important;
+}
