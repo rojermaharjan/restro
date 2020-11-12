@@ -109,7 +109,7 @@
       content: "";
       height: 1px;
       opacity: 0;
-      background-color: currentColor;
+      background-color: var(--color-tertiary);
       position: absolute;
       bottom: 2px;
       left: 0;
@@ -127,6 +127,11 @@
         opacity: 1;
       }
     }
+  }
+}
+.sidearea-button-opener-svg-path {
+  svg rect {
+    fill: var(--color-tertiary);
   }
 }
 .sidearea-svg-1 {
@@ -210,10 +215,16 @@
   .left, .right {
     display: flex;
   }
+  .left {
+    align-items: center;
+    i {
+      color: var(--color-tertiary);
+      font-size: 18px;
+    }
+  }
   .left a {
     align-items: center;
     display: flex;
-    line-height: 31px;
   }
   .right {
     justify-content: flex-end;
@@ -226,6 +237,7 @@
       height: 24px;
       i {
         font-size: 24px;
+        color: var(--color-tertiary);
       }
       img {
         width: inherit;

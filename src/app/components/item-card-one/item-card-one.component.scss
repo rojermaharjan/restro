@@ -35,7 +35,7 @@
       box-sizing: border-box;
       transform: translateZ(0);
       &.out-of-stock {
-        background-color: #000;
+        background-color: var(--color-tertiary);
         color: #fff;
         top: 17px;
         right: 17px;
@@ -44,7 +44,7 @@
         right: 17px;
         top: 17px;
         color: #fff;
-        background-color: #000;
+        background-color: var(--color-primary);
       }
       &.new-item {
         right: 17px;
@@ -89,7 +89,7 @@
           left: 0;
           width: 17px;
           margin: auto;
-          background-color: currentColor;
+          background-color: var(--color-primary);
           transition: width 0.2s ease-in-out;
         }
         &:hover:before {
