@@ -4,11 +4,11 @@
       <div class="left">
         <i class="material-icons mr-4">location_on</i>
         <a href="maps.google.com" class="line-link" style="color: #000;">
-          Some Restaurant 123 4th Avenue
+          {{siteInfoSvc.siteInfo.location_short}}
         </a>
         <i class="material-icons mr-4 ml-16">phone</i>
-        <a href="tel:+00 01 23 456 1001" class="line-link" style="color: #000;">
-          +00 01 23 456 1001
+        <a href="{{'tel:'+siteInfoSvc.siteInfo.contact}}" class="line-link" style="color: #000;">
+          {{siteInfoSvc.siteInfo.contact}}
         </a>
       </div>
     </div>
