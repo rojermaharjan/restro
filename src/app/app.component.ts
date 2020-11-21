@@ -14,8 +14,7 @@ export class AppComponent implements OnInit {
   isMobileNavOpen = false;
 
   constructor(
-    private router: Router,
-    private dialog: MatDialog
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -35,15 +34,5 @@ export class AppComponent implements OnInit {
     } else {
       this.isSideareaOpen = !this.isSideareaOpen;
     }
-  }
-
-  openLoginDialog(): void {
-    console.log('here');
-    const dialogConfig = new MatDialogConfig();
-
-    dialogConfig.disableClose = false;
-    dialogConfig.autoFocus = false;
-
-    this.dialog.open(LoginDialogComponent, dialogConfig);
   }
 }

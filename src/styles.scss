@@ -284,8 +284,13 @@ tt {
 }
 
 //General
+:root {
+  --color-primary: #9a031e;
+  --color-secondary: #fb8b24;
+  --color-tertiary: #e36414;
+}
 ::selection {
-  background: #000;
+  background: var(--color-primary);
   color: #fff;
 }
 .cdk-global-scrollblock body {
@@ -310,12 +315,12 @@ tt {
   cursor: pointer;
   &.solid {
     color: rgb(255, 255, 255);
-    background-color: rgb(10, 10, 10);
-    border: 1px solid rgb(10, 10, 10);
+    background-color: var(--color-primary);
+    border: 1px solid var(--color-primary);
     &:hover {
-      color: rgb(10, 10, 10);
+      color: var(--color-primary);
       background-color: rgb(255, 255, 255);
-      border-color: rgb(10, 10, 10);
+      border-color: var(--color-primary);
     }
   }
   &.small {
@@ -384,10 +389,6 @@ tt {
   color: rgba(255, 255, 255, 0.3);
 }
 
-:root {
-  --color-1st: #f39220;
-}
-
 .line-link {
   position: relative;
   &:after {
@@ -398,7 +399,7 @@ tt {
     height: 1px;
     width: 100%;
     transform-origin: left;
-    background-color: currentColor;
+    background-color: var(--color-primary);
     transform: scale(0, 1);
     transition: transform 0.25s ease-out;
   }
@@ -443,7 +444,7 @@ tt {
         content: "";
         opacity: 0;
         height: 1px;
-        background-color: currentColor;
+        background-color: var(--color-tertiary);
         position: absolute;
         bottom: 14px;
         left: 0;
@@ -536,7 +537,7 @@ tt {
     margin-top: 24px;
     margin-bottom: 0;
     .ng5-slider-pointer {
-      background: #000;
+      background: var(--color-secondary);
       height: 7px;
       width: 7px;
       top: -3px;
@@ -550,7 +551,7 @@ tt {
       background-color: #e5e5e5;
     }
     .ng5-slider-selection {
-      background-color: #000;
+      background-color: var(--color-secondary);
     }
   }
   .price-label {
@@ -576,6 +577,23 @@ tt {
     outline: 0;
     position: relative;
     font-size: 14px;
+  }
+  textarea {
+    border: 0;
+    position: relative;
+    width: 100%;
+    padding: 12px 18px;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 19px;
+    font-weight: 300;
+    color: #000;
+    background-color: transparent;
+    border-radius: 0;
+    outline: 0;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease-in-out;
   }
   &.has-btn {
     input {
@@ -623,5 +641,11 @@ tt {
   }
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

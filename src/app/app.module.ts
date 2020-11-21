@@ -20,6 +20,7 @@ import { ToggleClassDirective } from './directives/toggle-class.directive';
 import { Ng5SliderModule } from 'ng5-slider';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { ProductSingleComponent } from './pages/product-single/product-single.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ProductSingleComponent } from './pages/product-single/product-single.co
     SelectComponent,
     ProductSingleComponent,
     ItemCardOneComponent,
-    LoginDialogComponent
+    LoginDialogComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

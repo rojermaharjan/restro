@@ -1,1 +1,182 @@
-<p>header works!</p>
+<header class="header z-10 w-100-p" appHeaderFixed>
+  <div class="header-top row d-none d-sm-flex d-md-flex" style="font-size: 15px; border-bottom: 1px solid #f1f1f1;">
+    <div class="col-6">
+      <div class="left">
+        <i class="material-icons mr-4">location_on</i>
+        <a href="maps.google.com" class="line-link" style="color: #000;">
+          Some Restaurant 123 4th Avenue
+        </a>
+        <i class="material-icons mr-4 ml-16">phone</i>
+        <a href="tel:+00 01 23 456 1001" class="line-link" style="color: #000;">
+          +00 01 23 456 1001
+        </a>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="right">
+        <div class="social">
+          <a href="mailto:example@email.com">
+            <i class="material-icons">email</i>
+          </a>
+        </div>
+        <div class="social">
+          <a href="facebook.com" target="_blank">
+            <img src="/assets/img/facebook.svg" class="social-icon-img" />
+          </a>
+        </div>
+        <div class="social">
+          <a href="instagram.com" target="_blank">
+            <img src="/assets/icons/instagram.svg" class="social-icon-img" />
+          </a>
+        </div>
+        <div class="social">
+          <a href="twitter.com" target="_blank">
+            <img src="/assets/icons/twitter.svg" class="social-icon-img" />
+          </a>
+        </div>
+        <div class="social">
+          <a href="youtube.com" target="_blank">
+            <img src="/assets/icons/youtube.svg" class="social-icon-img" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="menu fixed d-flex align-items-center w-100-p" style="height: 125px;">
+    <div class="left d-flex align-items-center" style="flex: 100%;">
+      <div class="left-widget d-flex align-items">
+        <a href="javascript:void(0);" class="black-btn solid small">
+          <span class="btn-text">Reserve</span>
+        </a>
+      </div>
+      <div class="left-inner mx-auto">
+        <nav class="main-menu">
+          <ul id="mainMenu" class="p-0 m-0 d-flex">
+            <li class="menu-item">
+              <a routerLink="" routerLinkActive="active">
+                <span class="item-inner">
+                  <span class="item-text">Menu</span>
+                </span>
+              </a>
+            </li>
+            <li class="menu-item">
+              <a routerLink="/product-list" routerLinkActive="active">
+                <span class="item-inner">
+                  <span class="item-text">Products</span>
+                </span>
+              </a>
+            </li>
+            <li class="menu-item">
+              <a routerLink="/product/1" routerLinkActive="active">
+                <span class="item-inner">
+                  <span class="item-text">Single</span>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="center">
+      <div class="center-inner">
+        <div class="logo-wrapper pb-4">
+          <a href="">
+            <img src="/assets/img/logo-default-1.png" alt="" class="normal-logo" style="height: 36px; width: 100%;">
+            <!-- <img src="" alt="" class="dark-logo">
+            <img src="" alt="" class="light-logo"> -->
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="right d-flex justify-content-between" style="flex: 100%;">
+      <div class="right-inner mx-auto">
+        <nav class="main-menu">
+          <ul id="mainMenu" class="p-0 m-0 d-flex">
+            <li class="menu-item">
+              <a routerLink="" routerLinkActive="active">
+                <span class="item-inner">
+                  <span class="item-text">Menu</span>
+                </span>
+              </a>
+            </li>
+            <li class="menu-item">
+              <a routerLink="/contact" routerLinkActive="active">
+                <span class="item-inner">
+                  <span class="item-text">Contact</span>
+                </span>
+              </a>
+            </li>
+            <li class="menu-item">
+              <a class="cursor-pointer" (click)="openLoginDialog()">
+                <span class="item-inner">
+                  <span class="item-text">Sign-in</span>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="right-widget">
+        <a href="javascript:void(0);" class="sidearea-button-opener-svg-path" (click)="toggleSidearea.emit()">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            width="40.997px" height="17.016px" viewBox="0 0 40.997 17.016" enable-background="new 0 0 40.997 17.016"
+            xml:space="preserve">
+            <g class="sidearea-svg-1">
+              <rect class="sidearea-svg-initial" fill="#010101" width="40.997" height="1"></rect>
+              <rect class="sidearea-svg-hover" fill="#010101" width="40.997" height="1"></rect>
+            </g>
+            <g class="sidearea-svg-2">
+              <rect class="sidearea-svg-initial" fill="#010101" width="40.997" height="1"></rect>
+              <rect class="sidearea-svg-hover" fill="#010101" width="40.997" height="1"></rect>
+            </g>
+            <g class="sidearea-svg-3">
+              <rect class="sidearea-svg-initial" fill="#010101" width="40.997" height="1"></rect>
+              <rect class="sidearea-svg-hover" fill="#010101" width="40.997" height="1"></rect>
+            </g>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+<header class="mobile-header d-md-none">
+  <div class="mobile-header-inner">
+    <div class="mobile-header-bar">
+      <div class="grid position-relative h-100-p">
+        <div class="mobile-menu-opener d-flex justify-content-center align-items-center position-absolute h-100-p z-1"
+          (click)="isMobileNavOpen = !isMobileNavOpen">
+          <a href="javascript:void(0);" class="cursor-pointer d-flex">
+            <span class="material-icons" style="color: #000;">menu</span>
+          </a>
+        </div>
+        <div class="position-absolute w-100-p text-center d-flex justify-content-center align-items-center h-100-p">
+          <a routerLink="/" class="d-block w-100-p" style="height: 26px;background-image: url('/assets/img/logo-mobile-1.png'); background-repeat: no-repeat;
+          background-position: center;
+          background-size: contain;">
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="mobile-nav" [ngClass]="{'active': isMobileNavOpen}">
+      <div class="grid">
+        <ul class="mobile-menu m-0 p-0">
+          <li class="mobile-menu-item position-relative" appToggleClass>
+            <a href="javascript:void(0);" class="pl-4 py-8">
+              <span>Home</span>
+            </a>
+            <span class="arrow position-absolute">
+              <i class="material-icons">keyboard_arrow_right</i>
+            </span>
+            <ul class="mobile-sub-menu m-0 p-0 ml-16">
+              <li class="mobile-menu-item">
+                <a href="">
+                  <span>Lorem</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
