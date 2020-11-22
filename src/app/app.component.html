@@ -63,23 +63,25 @@
               <p>
                 <a class="line-link" href="https://www.google.com/maps/" target="_blank"
                   rel="noopener; noopener noreferrer">
-                  Some Restaurant 123 4th Avenue,</a></p>
+                  {{siteInfoSvc.siteInfo.location_short}}</a></p>
               <p>
                 <a class="line-link" href="https://www.google.com/maps/" target="_blank"
                   rel="noopener; noopener noreferrer">
-                  Some Place 10021, SM
+                  {{siteInfoSvc.siteInfo.location_full}}
                 </a>
               </p>
-              <p><a class="line-link" href="tel:+000123456789">+00 01 23 456 789</a></p>
-              <p><a class="line-link" href="mailto:email@example.com">email@example.com</a></p>
+              <p><a class="line-link"
+                  href="{{'tel:'+siteInfoSvc.siteInfo.contact}}">{{siteInfoSvc.siteInfo.contact}}</a></p>
+              <p><a class="line-link" href="{{'mailto:'+siteInfoSvc.siteInfo.email}}">{{siteInfoSvc.siteInfo.email}}</a>
+              </p>
               <p>Open 08:00 - 22:00 </p>
             </div>
             <div class="separator h-24"></div>
             <div class="social-cont">
-              <a class="line-link mr-36" href="https://www.facebook.com" target="_blank">
+              <a class="line-link mr-36" href="{{siteInfoSvc.siteInfo.fb_link}}" target="_blank">
                 <span>Facebook</span>
               </a>
-              <a class="line-link mr-36" href="https://www.instagram.com" target="_blank">
+              <a class="line-link mr-36" href="{{siteInfoSvc.siteInfo.insta_link}}" target="_blank">
                 <span>Instagram</span>
               </a>
               <a class="line-link" href="https://www.tripadvisor.com" target="_blank">
@@ -96,7 +98,8 @@
           <div class="col-12">
             <p>
               All rights reserved <a style="color: #4e4e4e;">© </a>
-              <a href="" target="_blank" class="link-link" style="color: #4e4e4e;" rel="noopener noreferrer">Rojer Maharjan</a>
+              <a href="" target="_blank" class="link-link" style="color: #4e4e4e;" rel="noopener noreferrer">Yodea
+                Inc</a>
             </p>
           </div>
         </div>

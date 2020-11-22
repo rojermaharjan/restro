@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { NavigationEnd, Router } from '@angular/router';
 import { LoginDialogComponent } from './components/login-dialog/login-dialog.component';
+import { SiteInfoService } from './services/site-info.service';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,8 @@ export class AppComponent implements OnInit {
   isMobileNavOpen = false;
 
   constructor(
-    private router: Router
+    private router: Router,
+    public siteInfoSvc:SiteInfoService
   ) { }
 
   ngOnInit(): void {

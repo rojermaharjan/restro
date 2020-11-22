@@ -130,5 +130,8 @@
       }
     }
   },
-  "defaultProject": "restro"
+  "defaultProject": "restro",
+  "cli": {
+    "analytics": "73ebb837-702b-4ea7-9602-7ed037675b99"
+  }
 }

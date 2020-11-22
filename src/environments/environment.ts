@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  //3-44 Kakusa, Kadogawa, Higashiusuki District, Miyazaki 889-0603, Japan
+  location_info:"3-44 Kakusa, Kadogawa",
+  contact:'+81 982-66-5018',
+  email:'',
 };
 
 /*
