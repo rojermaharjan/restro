@@ -143,9 +143,6 @@
   .main {
     padding: 10px;
   }
-  .header {
-    display: none;
-  }
   .grid {
     width: 768px;
   }
@@ -153,9 +150,6 @@
 @media only screen and (max-width: 768px) {
   .grid {
     width: 600px;
-  }
-  .mobile-header .grid {
-    width: 90%;
   }
 }
 .main {
