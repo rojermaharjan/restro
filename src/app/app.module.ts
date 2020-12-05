@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -21,6 +22,15 @@ import { Ng5SliderModule } from 'ng5-slider';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { ProductSingleComponent } from './pages/product-single/product-single.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { API_URL } from './services';
+import { AUTH_ENDPOINT, STORE_SERVICE } from './services/auth.service';
+import { environment } from 'src/environments/environment';
+import { StoreService, STORE_STATE } from './services/store.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ErrorInterceptor, TimeoutInterceptor, TokenInterceptor } from './interceptors';
+import { AppState } from './store/app.state';
+import { TranslateModule } from '@ngx-translate/core';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -37,8 +47,12 @@ import { ContactComponent } from './pages/contact/contact.component';
     ContactComponent
   ],
   imports: [
+
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    MatSnackBarModule,
+    TranslateModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
     TabsModule,
@@ -49,7 +63,36 @@ import { ContactComponent } from './pages/contact/contact.component';
     BrowserAnimationsModule,
     MatDialogModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: API_URL,
+      useValue: environment.api_url,
+  },
+  {
+      provide: AUTH_ENDPOINT,
+      useValue: environment.auth_end,
+  },
+  {
+      provide: STORE_SERVICE,
+      useExisting: StoreService,
+  },
+  // {
+  //     provide: HTTP_INTERCEPTORS,
+  //     useClass: TokenInterceptor,
+  //     multi: true,
+  // },
+  {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
+      multi: true,
+  },
+
+  {
+      provide: STORE_STATE,
+      useValue: AppState(),
+  },
+
+  ],
   bootstrap: [AppComponent],
   entryComponents: [LoginDialogComponent]
 })

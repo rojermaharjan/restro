@@ -4,11 +4,9 @@
 
 export const environment = {
   production: false,
-  //3-44 Kakusa, Kadogawa, Higashiusuki District, Miyazaki 889-0603, Japan
-  location_info:"3-44 Kakusa, Kadogawa",
-  contact:'+81 982-66-5018',
-  email:'',
-};
+  api_url: 'http://mmadmin.yodea.org',
+  auth_end: 'http://localhost:3001/api/auth/self',
+  };
 
 /*
  * For easier debugging in development mode, you can import the following file

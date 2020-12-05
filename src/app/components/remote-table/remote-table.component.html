@@ -1,0 +1,54 @@
+<div fxLayout="column" [ngClass]="tblClass">
+  <mat-table #table matSort (matSortChange)="sortData($event)" [dataSource]="dataSource" *fuseIfOnDom
+    [@animateStagger]="{ value: '50' }">
+    <ng-container *ngFor="let col of columns" cdkColumnDef="{{ col.field }}">
+      <mat-header-cell *matHeaderCellDef>
+        <div style="
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                    ">
+          <span mat-sort-header>{{
+                        '' + col.label + '' | translate
+                    }}</span>
+
+        </div>
+      </mat-header-cell>
+      <mat-cell *cdkCellDef="let row">
+        <ng-container *ngIf="loadState !== loadStates.LOADING">
+          <span style="
+                            max-width: 192px;
+                            word-wrap: break-word;
+                            padding-right: 4px;
+                        " [innerHtml]="displayCallBack(row, col)"></span>
+        </ng-container>
+        <ng-container *ngIf="loadState === loadStates.LOADING">
+          <ngx-shimmer-loading [width]="'128px'"></ngx-shimmer-loading>
+        </ng-container>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container *ngIf="tableActions && tableActions.length > 0" cdkColumnDef="actions">
+      <mat-header-cell *cdkHeaderCellDef fxFlex="128px" fxLayoutAlign="center center">{{ 'ACTIONS' | translate }}
+      </mat-header-cell>
+      <mat-cell *cdkCellDef="let row" fxFlex="128px" fxLayoutAlign="center center">
+        <button mat-icon-button *ngFor="let tableAction of tableActions"
+          (click)="onActionClick($event, row, tableAction.id)">
+          <mat-icon matTooltip="{{ tableAction.label | translate }}" aria-label="Return"
+            ngClass="{{ colorClass + '-fg' }}">
+            {{ tableAction.icon }}</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+
+    <mat-header-row *cdkHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+    <mat-row *cdkRowDef="let row; columns: displayedColumns" (click)="onSelect(row)"
+      [ngClass]="{ 'mat-light-blue-50-bg': row == selected }" matRipple
+      [@animate]="{ value: '*', params: { y: '100%' } }">
+    </mat-row>
+  </mat-table>
+  <mat-paginator *ngIf="loadState !== loadStates.LOADING" [(length)]="total_rows" [(pageIndex)]="pageIndex"
+    [(pageSize)]="pageSize" [pageSizeOptions]="[10, 20, 50, 100]" (page)="onPageChanged($event)">
+  </mat-paginator>
+</div>

@@ -1,5 +1,9 @@
+import { IProduct } from './../../product/product';
+import { ListState } from './../../services/contracts/component.state';
 import { Component, OnInit } from '@angular/core';
 import { Options } from 'ng5-slider';
+import { ProductService } from 'src/app/product/product.service';
+import { StoreService } from 'src/app/services/store.service';
 
 @Component({
   selector: 'app-product-list',
@@ -31,9 +35,18 @@ export class ProductListComponent implements OnInit {
     hidePointerLabels: true
   };
 
-  constructor() { }
+  product$= this.store.watch<ListState<IProduct>>('products');
 
-  ngOnInit(): void {
+  constructor(private productSvc: ProductService,private store: StoreService) { }
+
+ async ngOnInit(): Promise<void>{
+
+  await this.productSvc.getItems('products', {});
+
+  this.product$.subscribe(p =>{
+    console.log(p);
+  });
+
   }
 
 }

@@ -3,6 +3,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { NavigationEnd, Router } from '@angular/router';
 import { LoginDialogComponent } from './components/login-dialog/login-dialog.component';
 import { SiteInfoService } from './services/site-info.service';
+import { StoreService } from './services/store.service';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,8 @@ export class AppComponent implements OnInit {
 
   constructor(
     private router: Router,
-    public siteInfoSvc:SiteInfoService
+    public siteInfoSvc: SiteInfoService,
+    store: StoreService
   ) { }
 
   ngOnInit(): void {

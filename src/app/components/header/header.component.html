@@ -15,17 +15,17 @@
     <div class="col-6">
       <div class="right">
         <div class="social">
-          <a href="mailto:example@email.com">
+          <a href="{{'mailto:'+siteInfoSvc.siteInfo.email}}">
             <i class="material-icons">email</i>
           </a>
         </div>
         <div class="social">
-          <a href="facebook.com" target="_blank">
+          <a href="{{siteInfoSvc.siteInfo.fb_link}}" target="_blank">
             <img src="/assets/img/facebook.svg" class="social-icon-img" />
           </a>
         </div>
         <div class="social">
-          <a href="instagram.com" target="_blank">
+          <a href="{{siteInfoSvc.siteInfo.insta_link}}" target="_blank">
             <img src="/assets/icons/instagram.svg" class="social-icon-img" />
           </a>
         </div>
@@ -70,6 +70,13 @@
               <a routerLink="/product/1" routerLinkActive="active">
                 <span class="item-inner">
                   <span class="item-text">Single</span>
+                </span>
+              </a>
+            </li>
+            <li class="menu-item">
+              <a routerLink="/admin" routerLinkActive="active">
+                <span class="item-inner">
+                  <span class="item-text">Admin</span>
                 </span>
               </a>
             </li>
