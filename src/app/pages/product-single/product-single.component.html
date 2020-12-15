@@ -30,9 +30,7 @@
             </div>
           </div>
           <div class="product-description mt-60">
-            <p>Sed viverra ipsum nunc aliquet bibendum enim facilisis gravida neque convallis an cras semper auctor
-              neque
-              vitae tempus quam pellentesque nec nam aliquam sem tortor consequat id porta nibh venenatis.</p>
+            <p [innerHTML]="product.description"></p>
           </div>
           <div class="product-actions mt-52">
             <div class="product-qty-btn mr-32">
@@ -73,12 +71,7 @@
           <app-tab-content #description tabTitle="description">
             <div class="row">
               <div class="col">
-                <p class="m-0 mt-12">
-                  Fames ac turpis egestas sed tempus urna et pharetra pharetra massa massa ultricies mi quis hendrerit
-                  dolor magna eget est lorem ipsum dolor sit amet consectetur adipiscing elit aneis pellentesqu habitant
-                  morbi tristique senectus et netus et malesuada fames ac egestas integer eget aliquet nibh praesent
-                  tristique magna sit amet purus gravida quis blandit turpis cursus in hac habitasse platea dictumst
-                  quisque sagittis purus sit.
+                <p class="m-0 mt-12" [innerHTML]="product.description">
                 </p>
               </div>
             </div>

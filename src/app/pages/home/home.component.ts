@@ -10,6 +10,7 @@ export class HomeComponent implements OnInit {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
+    autoplay: true,
     dots: false,
     // asNavFor: '.offer-slider-nav-inner',
     responsive: [{
