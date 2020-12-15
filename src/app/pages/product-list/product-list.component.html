@@ -21,9 +21,10 @@
         </div>
         <div class="product-list mb-12">
           <div class="row">
-            <app-item-card-one class="col-sm-4 px-16 mb-32"></app-item-card-one>
-            <app-item-card-one class="col-sm-4 px-16 mb-32"></app-item-card-one>
-            <app-item-card-one class="col-sm-4 px-16 mb-32"></app-item-card-one>
+            <ng-container *ngFor="let product of product$ | async">
+              <app-item-card-one class="col-sm-4 px-16 mb-32" [item]="product" [image]="imageUrl(product)">
+              </app-item-card-one>
+            </ng-container>
           </div>
         </div>
         <div class="pagination">

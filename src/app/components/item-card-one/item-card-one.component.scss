@@ -13,8 +13,9 @@
   .item-image {
     position: relative;
     img {
-      height: auto;
+      height: 222px;
       width: 100%;
+      object-fit: cover;
     }
     .sticker {
       position: absolute;

@@ -7,5 +7,6 @@ export interface IProduct {
   product_family: string;
   product_category: string;
   brand: any;
+  image: any[];
   family: any;
 }

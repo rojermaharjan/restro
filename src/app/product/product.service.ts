@@ -9,7 +9,7 @@ import { IProduct } from './product';
 })
 export class ProductService extends BaseService<IProduct> {
   constructor(store: StoreService, rest: RestService) {
-      super(store, rest, 'products');
-      this.store.set('products', initListState<IProduct>());
+    super(store, rest, 'products');
+    this.store.set('products', initListState<IProduct>());
   }
 }

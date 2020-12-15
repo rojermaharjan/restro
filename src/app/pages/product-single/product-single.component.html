@@ -9,168 +9,171 @@
 </div>
 <div class="position-relative" style="z-index: 100;">
   <div class="container pt-120 pb-50 px-0">
-    <div class="product-single row" style="margin: 0 -25px;">
-      <div class="product-images col-sm-6">
-        <div class="product-image">
-          <a href="/assets/img/shop-img-2.jpg" style="background-image: url('/assets/img/shop-img-2.jpg');">
-          </a>
-        </div>
-      </div>
-      <div class="product-summary col-sm-6">
-        <div class="product-title">White Plate</div>
-        <p class="price" style="font-size: 20px;">
-          <span class="price-currency">$</span>85
-        </p>
-        <div class="product-rating">
-          <div class="star-rating">
-            <span style="width: 100%;">
-              Rated <strong class="rating">4.00</strong> out of 5
-            </span>
+    <ng-container *ngIf="product$ | async as product">
+      <div class="product-single row" style="margin: 0 -25px;">
+        <div class="product-images col-sm-6">
+          <div class="product-image">
+            <a [href]="imageUrl" [style]="'background-image: url(' + imageUrl + ')'">
+            </a>
           </div>
         </div>
-        <div class="product-description mt-60">
-          <p>Sed viverra ipsum nunc aliquet bibendum enim facilisis gravida neque convallis an cras semper auctor neque
-            vitae tempus quam pellentesque nec nam aliquam sem tortor consequat id porta nibh venenatis.</p>
-        </div>
-        <div class="product-actions mt-52">
-          <div class="product-qty-btn mr-32">
-            <span class="qty-btn qty-minus" (click)="updateQty(false)">
-              <svg class="h-100-p" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                y="0px" viewBox="0 0 7.426 24.024" enable-background="new 0 0 7.426 24.024" xml:space="preserve">
-                <g>
-                  <polygon points="6.548,24.024 7.427,23.545 1.139,12.02 7.412,0.478 6.533,0 0,12.021 	"></polygon>
-                </g>
-              </svg>
-            </span>
-            <input type="text" class="qty-input" name="quantity" value="{{ productQty }}" title="Qty" size="4"
-              pattern="[0-9]*" inputmode="numeric">
-            <span class="qty-btn qty-plus" (click)="updateQty(true)">
-              <svg class="h-100-p" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                y="0px" viewBox="0 0 7.426 24.024" enable-background="new 0 0 7.426 24.024" xml:space="preserve">
-                <g>
-                  <polygon points="0.878,24.024 0,23.545 6.288,12.02 0.015,0.478 0.894,0 7.426,12.021 	"></polygon>
-                </g>
-              </svg>
-            </span>
-          </div>
-          <button class="black-btn solid">
-            <div class="btn-text">Lorem ipsum</div>
-          </button>
-        </div>
-        <div class="product-meta mt-52">
-          <p class="meta-text">SKU: <span class="meta-value">002</span></p>
-          <p class="meta-text">Category: <span class="meta-value">Dining Sets</span></p>
-          <p class="meta-text">Tags: <span class="meta-value">Brunch, Buffet</span></p>
-        </div>
-      </div>
-    </div>
-    <div class="product-tabs-cont mt-44">
-      <app-tabs #tabs>
-        <app-tab-content #description tabTitle="description">
-          <div class="row">
-            <div class="col">
-              <p class="m-0 mt-12">
-                Fames ac turpis egestas sed tempus urna et pharetra pharetra massa massa ultricies mi quis hendrerit
-                dolor magna eget est lorem ipsum dolor sit amet consectetur adipiscing elit aneis pellentesqu habitant
-                morbi tristique senectus et netus et malesuada fames ac egestas integer eget aliquet nibh praesent
-                tristique magna sit amet purus gravida quis blandit turpis cursus in hac habitasse platea dictumst
-                quisque sagittis purus sit.
-              </p>
+        <div class="product-summary col-sm-6">
+          <div class="product-title">{{ product.name }}</div>
+          <p class="price" style="font-size: 20px;">
+            <span class="price-currency">$</span>{{ product.price }}
+          </p>
+          <div class="product-rating">
+            <div class="star-rating">
+              <span style="width: 100%;">
+                Rated <strong class="rating">4.00</strong> out of 5
+              </span>
             </div>
           </div>
-        </app-tab-content>
-        <app-tab-content #additionalInformation tabTitle="additional information">
-          <table class="product-attributes">
-            <tbody>
-              <tr>
-                <th>Weight</th>
-                <td>1.5 kg</td>
-              </tr>
-              <tr>
-                <th>Dimensions</th>
-                <td>16.5 x 21.5 x 2 cm</td>
-              </tr>
-            </tbody>
-          </table>
-        </app-tab-content>
-        <app-tab-content #reviews tabTitle="reviews (2)">
-          <div class="product-reviews">
-            <div class="comments">
-              <h2 class="comment-title">2 reviews for <span>White Plate</span></h2>
-              <ol class="comment-list">
-                <li class="comment">
-                  <div class="comment-inner">
-                    <img src="/assets/img/avatar-1.jpg" alt="" class="avatar">
-                    <div class="comment-text">
-                      <div class="product-rating" style="line-height: 26px;">
-                        <div class="star-rating">
-                          <span style="width: 100%;">
-                            Rated <strong class="rating">4.00</strong> out of 5
-                          </span>
+          <div class="product-description mt-60">
+            <p>Sed viverra ipsum nunc aliquet bibendum enim facilisis gravida neque convallis an cras semper auctor
+              neque
+              vitae tempus quam pellentesque nec nam aliquam sem tortor consequat id porta nibh venenatis.</p>
+          </div>
+          <div class="product-actions mt-52">
+            <div class="product-qty-btn mr-32">
+              <span class="qty-btn qty-minus" (click)="updateQty(false)">
+                <svg class="h-100-p" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                  x="0px" y="0px" viewBox="0 0 7.426 24.024" enable-background="new 0 0 7.426 24.024"
+                  xml:space="preserve">
+                  <g>
+                    <polygon points="6.548,24.024 7.427,23.545 1.139,12.02 7.412,0.478 6.533,0 0,12.021 	"></polygon>
+                  </g>
+                </svg>
+              </span>
+              <input type="text" class="qty-input" name="quantity" value="{{ productQty }}" title="Qty" size="4"
+                pattern="[0-9]*" inputmode="numeric">
+              <span class="qty-btn qty-plus" (click)="updateQty(true)">
+                <svg class="h-100-p" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                  x="0px" y="0px" viewBox="0 0 7.426 24.024" enable-background="new 0 0 7.426 24.024"
+                  xml:space="preserve">
+                  <g>
+                    <polygon points="0.878,24.024 0,23.545 6.288,12.02 0.015,0.478 0.894,0 7.426,12.021 	"></polygon>
+                  </g>
+                </svg>
+              </span>
+            </div>
+            <button class="black-btn solid">
+              <div class="btn-text">Lorem ipsum</div>
+            </button>
+          </div>
+          <div class="product-meta mt-52">
+            <p class="meta-text">SKU: <span class="meta-value">002</span></p>
+            <p class="meta-text">Category: <span class="meta-value">Dining Sets</span></p>
+            <p class="meta-text">Tags: <span class="meta-value">Brunch, Buffet</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="product-tabs-cont mt-44">
+        <app-tabs #tabs>
+          <app-tab-content #description tabTitle="description">
+            <div class="row">
+              <div class="col">
+                <p class="m-0 mt-12">
+                  Fames ac turpis egestas sed tempus urna et pharetra pharetra massa massa ultricies mi quis hendrerit
+                  dolor magna eget est lorem ipsum dolor sit amet consectetur adipiscing elit aneis pellentesqu habitant
+                  morbi tristique senectus et netus et malesuada fames ac egestas integer eget aliquet nibh praesent
+                  tristique magna sit amet purus gravida quis blandit turpis cursus in hac habitasse platea dictumst
+                  quisque sagittis purus sit.
+                </p>
+              </div>
+            </div>
+          </app-tab-content>
+          <app-tab-content #additionalInformation tabTitle="additional information">
+            <table class="product-attributes">
+              <tbody>
+                <tr>
+                  <th>Weight</th>
+                  <td>1.5 kg</td>
+                </tr>
+                <tr>
+                  <th>Dimensions</th>
+                  <td>16.5 x 21.5 x 2 cm</td>
+                </tr>
+              </tbody>
+            </table>
+          </app-tab-content>
+          <app-tab-content #reviews tabTitle="reviews (2)">
+            <div class="product-reviews">
+              <div class="comments">
+                <h2 class="comment-title">2 reviews for <span>White Plate</span></h2>
+                <ol class="comment-list">
+                  <li class="comment">
+                    <div class="comment-inner">
+                      <img src="/assets/img/avatar-1.jpg" alt="" class="avatar">
+                      <div class="comment-text">
+                        <div class="product-rating" style="line-height: 26px;">
+                          <div class="star-rating">
+                            <span style="width: 100%;">
+                              Rated <strong class="rating">4.00</strong> out of 5
+                            </span>
+                          </div>
+                        </div>
+                        <p class="meta">
+                          <strong class="author">Lorem Ipsum</strong>
+                          <span class="dash"> – </span>
+                          <time class="published-date">07.06.2018</time>
+                        </p>
+                        <div class="desc">
+                          <p>
+                            Doming civibus sensibus ei nec, an justo oportere praesent eos. An per tale vivendo. Te qui
+                            postea iriure adipiscing, sed ne harum persius civibus. Vix legere cetero recteque ex. Est
+                            nihil soluta ancillae id, at nonumy cetero elaboraret per, in etiam essent cum.
+                          </p>
                         </div>
                       </div>
-                      <p class="meta">
-                        <strong class="author">Lorem Ipsum</strong>
-                        <span class="dash"> – </span>
-                        <time class="published-date">07.06.2018</time>
-                      </p>
-                      <div class="desc">
-                        <p>
-                          Doming civibus sensibus ei nec, an justo oportere praesent eos. An per tale vivendo. Te qui
-                          postea iriure adipiscing, sed ne harum persius civibus. Vix legere cetero recteque ex. Est
-                          nihil soluta ancillae id, at nonumy cetero elaboraret per, in etiam essent cum.
-                        </p>
-                      </div>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+              <div class="comment-form-cont mt-16">
+                <div class="comment-title">
+                  Add a review
+                </div>
+                <form action="" class="comment-form">
+                  <p class="comment-notes">
+                    <span id="email-notes">Your email address will not be published.</span>
+                    Required fields are marked <span class="required">*</span>
+                  </p>
+                  <div class="comment-rating product">
+                    <label for="rating">Your rating</label>
+                    <div class="star-rating">
+                      <span style="width: 100%;">
+                        Rated <strong class="rating">4.00</strong> out of 5
+                      </span>
                     </div>
                   </div>
-                </li>
-              </ol>
-            </div>
-            <div class="comment-form-cont mt-16">
-              <div class="comment-title">
-                Add a review
+                  <p class="comment-form-comment">
+                    <label for="comment">Your review&nbsp;<span class="required">*</span></label>
+                    <textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"
+                      required=""></textarea>
+                  </p>
+                  <p class="comment-form-author">
+                    <label for="author">Name&nbsp;<span class="required">*</span></label>
+                    <input id="author" name="author" type="text" value="" size="30" aria-required="true" required="">
+                  </p>
+                  <p class="comment-form-email">
+                    <label for="email">Email&nbsp;<span class="required">*</span></label>
+                    <input id="email" name="email" type="email" value="" size="30" aria-required="true" required="">
+                  </p>
+                  <p class="comment-submit">
+                    <button class="black-btn solid">submit</button>
+                  </p>
+                </form>
               </div>
-              <form action="" class="comment-form">
-                <p class="comment-notes">
-                  <span id="email-notes">Your email address will not be published.</span>
-                  Required fields are marked <span class="required">*</span>
-                </p>
-                <div class="comment-rating product">
-                  <label for="rating">Your rating</label>
-                  <div class="star-rating">
-                    <span style="width: 100%;">
-                      Rated <strong class="rating">4.00</strong> out of 5
-                    </span>
-                  </div>
-                </div>
-                <p class="comment-form-comment">
-                  <label for="comment">Your review&nbsp;<span class="required">*</span></label>
-                  <textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" required=""></textarea>
-                </p>
-                <p class="comment-form-author">
-                  <label for="author">Name&nbsp;<span class="required">*</span></label>
-                  <input id="author" name="author" type="text" value="" size="30" aria-required="true" required="">
-                </p>
-                <p class="comment-form-email">
-                  <label for="email">Email&nbsp;<span class="required">*</span></label>
-                  <input id="email" name="email" type="email" value="" size="30" aria-required="true" required="">
-                </p>
-                <p class="comment-submit">
-                  <button class="black-btn solid">submit</button>
-                </p>
-              </form>
             </div>
-          </div>
-        </app-tab-content>
-      </app-tabs>
-    </div>
+          </app-tab-content>
+        </app-tabs>
+      </div>
+    </ng-container>
     <div class="related-products pt-40">
       <h2 class="title">related products</h2>
       <div class="row">
-        <app-item-card-one class="col-sm-3"></app-item-card-one>
-        <app-item-card-one class="col-sm-3"></app-item-card-one>
-        <app-item-card-one class="col-sm-3"></app-item-card-one>
-        <app-item-card-one class="col-sm-3"></app-item-card-one>
+        <app-item-card-one class="col-sm-3" [item]="product$ | async" [image]="imageUrl"></app-item-card-one>
       </div>
     </div>
   </div>

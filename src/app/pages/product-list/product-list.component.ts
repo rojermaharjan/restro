@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { Options } from 'ng5-slider';
 import { ProductService } from 'src/app/product/product.service';
 import { StoreService } from 'src/app/services/store.service';
+import { pluck } from 'rxjs/operators';
+import { itemImageUrl } from 'src/app/utils';
 
 @Component({
   selector: 'app-product-list',
@@ -35,18 +37,20 @@ export class ProductListComponent implements OnInit {
     hidePointerLabels: true
   };
 
-  product$= this.store.watch<ListState<IProduct>>('products');
+  product$ = this.store.watch<ListState<IProduct>>('products').pipe(pluck('items'));
 
-  constructor(private productSvc: ProductService,private store: StoreService) { }
+  constructor(private productSvc: ProductService, private store: StoreService) { }
 
- async ngOnInit(): Promise<void>{
+  async ngOnInit(): Promise<void> {
 
-  await this.productSvc.getItems('products', {});
+    await this.productSvc.getItems('products', {});
 
-  this.product$.subscribe(p =>{
-    console.log(p);
-  });
-
+    this.product$.subscribe(p => {
+      console.log('Product List:', p);
+    });
   }
 
+  imageUrl(item: any) {
+    return itemImageUrl(item);
+  }
 }
