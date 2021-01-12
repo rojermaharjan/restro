@@ -1,0 +1,28 @@
+<div class="feature-item">
+  <div class="feature-img-cont">
+    <a itemprop="url" routerLink="/product-list" title="Lorem">
+      <img [src]="item.src" alt="" class="feature-img">
+    </a>
+    <div itemprop="dateCreated" class="text-overlay">
+      <a itemprop="url" routerLink="/product-list">${{item.price}}</a>
+      <meta itemprop="interactionCount" content="UserComments: 0">
+    </div>
+  </div>
+  <div class="content">
+    <h4 itemprop="name" class="feature-title">
+      <a itemprop="url" routerLink="/product-list" title="Title">{{item.title}}</a>
+    </h4>
+    <div>
+      <div class="excerpt-cont">
+        <p itemprop="description" class="excerpt">
+          {{item.excerpt}}
+        </p>
+      </div>
+      <div class="feature-btn-cont">
+        <a itemprop="url" routerLink="/product-list" target="_self" class="feature-btn">
+          <span class="feature-btn-text">DISCOVER</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

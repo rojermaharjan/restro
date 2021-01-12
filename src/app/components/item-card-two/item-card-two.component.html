@@ -1,0 +1,18 @@
+<div class="feature-item">
+  <img [src]="item.src" alt="Feature">
+  <div class="feature-inner">
+    <div class="feature-btn">
+      <div class="feature-icon">
+        <img [src]="item.icon" alt="Feature">
+      </div>
+      <div class="feature-text">
+        <span>{{item.title}}</span>
+      </div>
+      <div class="feature-link-cont">
+        <a [routerLink]="'/product-list' + item.id" class="feature-link">
+          <i class="material-icons">keyboard_arrow_right</i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

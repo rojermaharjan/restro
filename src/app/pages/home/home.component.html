@@ -47,7 +47,7 @@
 </div>
 <section class="featured-area mb-72">
   <div class="container">
-    <div class="section-title mb-48">
+    <div class="section-title-common mb-48">
       <h2>Featured Categories</h2>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum natus beatae nesciunt provident, sapiente
@@ -56,65 +56,8 @@
       </p>
     </div>
     <div class="row">
-      <div class="col-sm-6 col-lg-4">
-        <div class="feature-item">
-          <img src="/assets/img/feature1.jpg" alt="Feature">
-          <div class="feature-inner">
-            <div class="feature-btn">
-              <div class="feature-icon">
-                <img src="/assets/img/feature1.png" alt="Feature">
-              </div>
-              <div class="feature-text">
-                <span>Fast Food</span>
-              </div>
-              <div class="feature-link-cont">
-                <a routerLink="/product-list" class="feature-link">
-                  <i class="material-icons">keyboard_arrow_right</i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-4">
-        <div class="feature-item">
-          <img src="/assets/img/feature1.jpg" alt="Feature">
-          <div class="feature-inner">
-            <div class="feature-btn">
-              <div class="feature-icon">
-                <img src="/assets/img/feature1.png" alt="Feature">
-              </div>
-              <div class="feature-text">
-                <span>Fast Food</span>
-              </div>
-              <div class="feature-link-cont">
-                <a routerLink="/product-list" class="feature-link">
-                  <i class="material-icons">keyboard_arrow_right</i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-4">
-        <div class="feature-item">
-          <img src="/assets/img/feature1.jpg" alt="Feature">
-          <div class="feature-inner">
-            <div class="feature-btn">
-              <div class="feature-icon">
-                <img src="/assets/img/feature1.png" alt="Feature">
-              </div>
-              <div class="feature-text">
-                <span>Fast Food</span>
-              </div>
-              <div class="feature-link-cont">
-                <a routerLink="/product-list" class="feature-link">
-                  <i class="material-icons">keyboard_arrow_right</i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="col-sm-6 col-lg-4" *ngFor="let item of featuredCategories">
+        <app-item-card-two [item]="item"></app-item-card-two>
       </div>
     </div>
   </div>
@@ -122,101 +65,21 @@
 <section class="featured-area-2 mb-72">
   <div class="container">
     <div class="section-title">
-      <h2>Andé Blog</h2>
+      <h2>Our Menu</h2>
       <div class="separator-cont text-center">
         <div class="separator mt-44 mb-32 mx-auto" style="width: 80px; border-bottom-width: 2px;"></div>
       </div>
     </div>
-    <div class="h-24"></div>
-    <div class="row">
-      <div class="col-sm-6 col-lg-4">
-        <div class="feature-item">
-          <div class="feature-img-cont">
-            <a itemprop="url" routerLink="/product-list" title="Lorem">
-              <img src="/assets/img/h1-post-1.jpg" alt="" class="feature-img">
-            </a>
-            <div itemprop="dateCreated" class="text-overlay">
-              <a itemprop="url" routerLink="/product-list">11.10.2020</a>
-              <meta itemprop="interactionCount" content="UserComments: 0">
-            </div>
-          </div>
-          <div class="content">
-            <h4 itemprop="name" class="feature-title">
-              <a itemprop="url" routerLink="/product-list" title="Title">Garlic Pasta</a>
-            </h4>
-            <div>
-              <div class="excerpt-cont">
-                <p itemprop="description" class="excerpt">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                </p>
-              </div>
-              <div class="feature-btn-cont">
-                <a itemprop="url" routerLink="/product-list" target="_self" class="feature-btn">
-                  <span class="feature-btn-text">DISCOVER</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div class="container" *ngFor="let menu of menus">
+      <div class="section-title-common mb-48">
+        <h2>{{menu.title}}</h2>
+        <p>
+          {{menu.excerpt}}
+        </p>
       </div>
-      <div class="col-sm-6 col-lg-4">
-        <div class="feature-item">
-          <div class="feature-img-cont">
-            <a itemprop="url" routerLink="/product-list" title="Lorem">
-              <img src="/assets/img/h1-post-1.jpg" alt="" class="feature-img">
-            </a>
-            <div itemprop="dateCreated" class="text-overlay">
-              <a itemprop="url" routerLink="/product-list">11.10.2020</a>
-              <meta itemprop="interactionCount" content="UserComments: 0">
-            </div>
-          </div>
-          <div class="content">
-            <h4 itemprop="name" class="feature-title">
-              <a itemprop="url" routerLink="/product-list" title="Title">Garlic Pasta</a>
-            </h4>
-            <div>
-              <div class="excerpt-cont">
-                <p itemprop="description" class="excerpt">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                </p>
-              </div>
-              <div class="feature-btn-cont">
-                <a itemprop="url" routerLink="/product-list" target="_self" class="feature-btn">
-                  <span class="feature-btn-text">DISCOVER</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-4">
-        <div class="feature-item">
-          <div class="feature-img-cont">
-            <a itemprop="url" routerLink="/product-list" title="Lorem">
-              <img src="/assets/img/h1-post-1.jpg" alt="" class="feature-img">
-            </a>
-            <div itemprop="dateCreated" class="text-overlay">
-              <a itemprop="url" routerLink="/product-list">11.10.2020</a>
-              <meta itemprop="interactionCount" content="UserComments: 0">
-            </div>
-          </div>
-          <div class="content">
-            <h4 itemprop="name" class="feature-title">
-              <a itemprop="url" routerLink="/product-list" title="Title">Garlic Pasta</a>
-            </h4>
-            <div>
-              <div class="excerpt-cont">
-                <p itemprop="description" class="excerpt">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                </p>
-              </div>
-              <div class="feature-btn-cont">
-                <a itemprop="url" routerLink="/product-list" target="_self" class="feature-btn">
-                  <span class="feature-btn-text">DISCOVER</span>
-                </a>
-              </div>
-            </div>
-          </div>
+      <div class="row">
+        <div class="col-sm-6 col-lg-4" *ngFor="let item of menu.items">
+          <app-item-card-three [item]="item"></app-item-card-three>
         </div>
       </div>
     </div>

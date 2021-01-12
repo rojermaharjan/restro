@@ -14,6 +14,8 @@ import { LoginDialogComponent } from './components/login-dialog/login-dialog.com
 import { HeaderComponent } from './components/header/header.component';
 import { SelectComponent } from './components/select/select.component';
 import { ItemCardOneComponent } from './components/item-card-one/item-card-one.component';
+import { ItemCardTwoComponent } from './components/item-card-two/item-card-two.component';
+import { ItemCardThreeComponent } from './components/item-card-three/item-card-three.component';
 
 import { HeaderFixedDirective } from './directives/header-fixed.directive';
 import { ToggleClassDirective } from './directives/toggle-class.directive';
@@ -42,9 +44,11 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     HomeComponent,
     SelectComponent,
     ProductSingleComponent,
-    ItemCardOneComponent,
     LoginDialogComponent,
-    ContactComponent
+    ContactComponent,
+    ItemCardOneComponent,
+    ItemCardThreeComponent,
+    ItemCardTwoComponent
   ],
   imports: [
 
