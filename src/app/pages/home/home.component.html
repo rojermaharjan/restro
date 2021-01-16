@@ -2,7 +2,7 @@
   <div class="slider-overlay">
     <img src="/assets/img/11.png" alt="Slider Overlay" class="d-none d-lg-block">
   </div>
-  <ngx-slick-carousel class="offer-slider" #slickModal="slick-carousel" [config]="sliderConfig">
+  <ngx-slick-carousel id="homeSlider" class="offer-slider" #slickModal="slick-carousel" [config]="sliderConfig">
     <div ngxSlickItem *ngFor="let slide of slides" class="slider-item">
       <div class="slider-inner">
         <div class="container">

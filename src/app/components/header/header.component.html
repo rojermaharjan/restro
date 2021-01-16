@@ -52,34 +52,15 @@
       <div class="left-inner mx-auto">
         <nav class="main-menu">
           <ul id="mainMenu" class="p-0 m-0 d-flex">
-            <li class="menu-item">
-              <a routerLink="" routerLinkActive="active">
-                <span class="item-inner">
-                  <span class="item-text">Menu</span>
-                </span>
-              </a>
-            </li>
-            <li class="menu-item">
-              <a routerLink="/product-list" routerLinkActive="active">
-                <span class="item-inner">
-                  <span class="item-text">Products</span>
-                </span>
-              </a>
-            </li>
-            <li class="menu-item">
-              <a routerLink="/product/1" routerLinkActive="active">
-                <span class="item-inner">
-                  <span class="item-text">Single</span>
-                </span>
-              </a>
-            </li>
-            <li class="menu-item">
-              <a routerLink="/admin" routerLinkActive="active">
-                <span class="item-inner">
-                  <span class="item-text">Admin</span>
-                </span>
-              </a>
-            </li>
+            <ng-container *ngIf="leftItems">
+              <li class="menu-item" *ngFor="let menu of leftItems;">
+                <a [routerLink]="menu.link" routerLinkActive="active">
+                  <span class="item-inner">
+                    <span class="item-text">{{ menu.title }}</span>
+                  </span>
+                </a>
+              </li>
+            </ng-container>
           </ul>
         </nav>
       </div>
@@ -89,8 +70,6 @@
         <div class="logo-wrapper pb-4">
           <a href="">
             <img src="/assets/img/logo-default-1.png" alt="" class="normal-logo" style="height: 36px; width: 100%;">
-            <!-- <img src="" alt="" class="dark-logo">
-            <img src="" alt="" class="light-logo"> -->
           </a>
         </div>
       </div>
@@ -99,27 +78,15 @@
       <div class="right-inner mx-auto">
         <nav class="main-menu">
           <ul id="mainMenu" class="p-0 m-0 d-flex">
-            <li class="menu-item">
-              <a routerLink="" routerLinkActive="active">
-                <span class="item-inner">
-                  <span class="item-text">Menu</span>
-                </span>
-              </a>
-            </li>
-            <li class="menu-item">
-              <a routerLink="/contact" routerLinkActive="active">
-                <span class="item-inner">
-                  <span class="item-text">Contact</span>
-                </span>
-              </a>
-            </li>
-            <li class="menu-item">
-              <a class="cursor-pointer" (click)="openLoginDialog()">
-                <span class="item-inner">
-                  <span class="item-text">Sign-in</span>
-                </span>
-              </a>
-            </li>
+            <ng-container *ngIf="rightItems">
+              <li class="menu-item" *ngFor="let menu of rightItems;">
+                <a [routerLink]="menu.link" routerLinkActive="active">
+                  <span class="item-inner">
+                    <span class="item-text">{{ menu.title }}</span>
+                  </span>
+                </a>
+              </li>
+            </ng-container>
           </ul>
         </nav>
       </div>
@@ -147,6 +114,14 @@
   </div>
 </header>
 <header class="mobile-header d-md-none">
+  <div class="d-flex justify-content-between align-items-center p-4">
+    <a href="maps.google.com" class="line-link" style="color: #000;">
+      {{siteInfoSvc.siteInfo.location_short}}
+    </a>
+    <a href="{{'tel:'+siteInfoSvc.siteInfo.contact}}" class="line-link" style="color: #000;">
+      {{siteInfoSvc.siteInfo.contact}}
+    </a>
+  </div>
   <div class="mobile-header-inner">
     <div class="mobile-header-bar">
       <div class="grid position-relative h-100-p">
@@ -167,7 +142,14 @@
     <div class="mobile-nav" [ngClass]="{'active': isMobileNavOpen}">
       <div class="grid">
         <ul class="mobile-menu m-0 p-0">
-          <li class="mobile-menu-item position-relative" appToggleClass>
+          <ng-container *ngIf="menuItems">
+            <li class="mobile-menu-item position-relative" *ngFor="let menu of menuItems">
+              <a [routerLink]="menu.path" class="pl-4 py-8">
+                <span>{{ menu.title }}</span>
+              </a>
+            </li>
+          </ng-container>
+          <!-- <li class="mobile-menu-item position-relative" appToggleClass>
             <a href="javascript:void(0);" class="pl-4 py-8">
               <span>Home</span>
             </a>
@@ -181,7 +163,7 @@
                 </a>
               </li>
             </ul>
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>

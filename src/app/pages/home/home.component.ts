@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -12,12 +12,14 @@ export class HomeComponent implements OnInit {
     arrows: false,
     autoplay: true,
     dots: false,
-    responsive: [{
-      breakpoint: 768,
-      settings: {
-        arrows: false,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          arrows: false,
+        }
       }
-    }]
+    ]
   };
   slides = [
     {

@@ -251,12 +251,6 @@
 .header.fixed .header-top {
   display: none !important;
 }
-
-@media only screen and (max-width: 768px) {
-  .mobile-header .grid {
-    width: 90%;
-  }
-}
 @media only screen and (max-width: 1024px) {
   .header {
     display: none;

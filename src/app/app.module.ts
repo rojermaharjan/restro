@@ -20,7 +20,6 @@ import { ItemCardThreeComponent } from './components/item-card-three/item-card-t
 import { HeaderFixedDirective } from './directives/header-fixed.directive';
 import { ToggleClassDirective } from './directives/toggle-class.directive';
 
-import { Ng5SliderModule } from 'ng5-slider';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { ProductSingleComponent } from './pages/product-single/product-single.component';
 import { ContactComponent } from './pages/contact/contact.component';
@@ -63,7 +62,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 
     // 3rd Party
     SlickCarouselModule,
-    Ng5SliderModule,
     BrowserAnimationsModule,
     MatDialogModule
   ],
