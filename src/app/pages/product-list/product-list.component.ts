@@ -1,11 +1,12 @@
+import { pluck } from 'rxjs/operators';
+import { itemImageUrl } from 'src/app/utils';
+
 import { IProduct } from './../../product/product';
 import { ListState } from './../../services/contracts/component.state';
 import { Component, OnInit } from '@angular/core';
-import { Options } from 'ng5-slider';
 import { ProductService } from 'src/app/product/product.service';
 import { StoreService } from 'src/app/services/store.service';
-import { pluck } from 'rxjs/operators';
-import { itemImageUrl } from 'src/app/utils';
+import { Options } from '@angular-slider/ngx-slider';
 
 @Component({
   selector: 'app-product-list',
@@ -50,7 +51,7 @@ export class ProductListComponent implements OnInit {
     });
   }
 
-  imageUrl(item: any) {
+  imageUrl(item: any): string {
     return itemImageUrl(item);
   }
 }

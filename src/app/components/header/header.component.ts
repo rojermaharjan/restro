@@ -30,7 +30,7 @@ export class HeaderComponent implements OnInit {
       left: false,
     },
     {
-      path: '/product/1',
+      path: '/set-menu/1',
       title: 'Menu',
       left: false,
     },

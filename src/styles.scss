@@ -476,6 +476,28 @@ tt {
   }
 }
 
+.section-title-common {
+  h2 {
+    font-weight: 700;
+    font-size: 35px;
+    margin-bottom: 16px;
+    margin-top: 0;
+    padding-top: 32px;
+  }
+  h2 {
+    line-height: 1.3;
+    font-family: "Oswald", sans-serif;
+    color: #0b0320;
+  }
+  p {
+    max-width: 580px;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: auto;
+    color: #a5a4a9;
+  }
+}
+
 .select-1 {
   min-width: 250px;
   display: block;
@@ -533,10 +555,10 @@ tt {
 }
 
 .price-range-slider {
-  .ng5-slider {
+  .ngx-slider {
     margin-top: 24px;
     margin-bottom: 0;
-    .ng5-slider-pointer {
+    .ngx-slider-pointer {
       background: var(--color-secondary);
       height: 7px;
       width: 7px;
@@ -546,11 +568,11 @@ tt {
         content: none;
       }
     }
-    .ng5-slider-bar {
+    .ngx-slider-bar {
       height: 2px;
       background-color: #e5e5e5;
     }
-    .ng5-slider-selection {
+    .ngx-slider-selection {
       background-color: var(--color-secondary);
     }
   }
@@ -640,15 +662,3 @@ tt {
     }
   }
 }
-
-html,
-body {
-  height: 100%;
-}
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,1 +1,43 @@
-<p>set-menu works!</p>
+<section class="banner">
+  <div class="row">
+    <div class="col">
+      <div class="banner-image w-100-p h-200">
+      </div>
+    </div>
+  </div>
+</section>
+<section class="set-list">
+  <div class="section-title-common mb-48 text-center">
+    <h2>Set Menu</h2>
+    <p style="margin-left: auto;">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum natus beatae nesciunt provident, sapiente
+      in, consequuntur dolore asperiores numquam quia dicta harum illum non accusantium quis aperiam id enim
+      odio.
+    </p>
+  </div>
+  <div class="set-list-cont">
+    <app-tabs #tabs>
+      <ng-container *ngFor="let set of setMenuItems;">
+        <app-tab-content [tabTitle]="set.title">
+          <div class="set-menu-content">
+            <div class="row">
+              <div class="col-sm-12 col-md-6" *ngFor="let item of set.items;">
+                <div class="set-item-box">
+                  <div class="set-image" [style]="'background-image: url(' + item.image + ')'">
+                  </div>
+                  <div class="set-content">
+                    <div class="set-title d-flex justify-space-between align-items-center">
+                      <div class="set-title-text">{{ item.title }}</div>
+                      <div class="set-price">{{ item.price }}</div>
+                    </div>
+                    <div class="set-desc">{{ item.description }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </app-tab-content>
+      </ng-container>
+    </app-tabs>
+  </div>
+</section>

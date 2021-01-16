@@ -39,7 +39,7 @@ export class ProductSingleComponent implements OnInit {
     }
   }
 
-  get imageUrl() {
+  get imageUrl(): string {
     return itemImageUrl(this.product);
   }
 }

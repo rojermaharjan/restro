@@ -32,6 +32,8 @@ import { ErrorInterceptor, TimeoutInterceptor, TokenInterceptor } from './interc
 import { AppState } from './store/app.state';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { SetMenuComponent } from './pages/set-menu/set-menu.component';
 
 @NgModule({
   declarations: [
@@ -47,10 +49,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ContactComponent,
     ItemCardOneComponent,
     ItemCardThreeComponent,
-    ItemCardTwoComponent
+    ItemCardTwoComponent,
+    SetMenuComponent,
   ],
   imports: [
-
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -63,36 +65,37 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     // 3rd Party
     SlickCarouselModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    NgxSliderModule,
   ],
   providers: [
     {
       provide: API_URL,
       useValue: environment.api_url,
-  },
-  {
+    },
+    {
       provide: AUTH_ENDPOINT,
       useValue: environment.auth_end,
-  },
-  {
+    },
+    {
       provide: STORE_SERVICE,
       useExisting: StoreService,
-  },
-  // {
-  //     provide: HTTP_INTERCEPTORS,
-  //     useClass: TokenInterceptor,
-  //     multi: true,
-  // },
-  {
+    },
+    // {
+    //     provide: HTTP_INTERCEPTORS,
+    //     useClass: TokenInterceptor,
+    //     multi: true,
+    // },
+    {
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorInterceptor,
       multi: true,
-  },
+    },
 
-  {
+    {
       provide: STORE_STATE,
       useValue: AppState(),
-  },
+    },
 
   ],
   bootstrap: [AppComponent],

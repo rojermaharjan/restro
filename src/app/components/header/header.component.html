@@ -54,7 +54,7 @@
           <ul id="mainMenu" class="p-0 m-0 d-flex">
             <ng-container *ngIf="leftItems">
               <li class="menu-item" *ngFor="let menu of leftItems;">
-                <a [routerLink]="menu.link" routerLinkActive="active">
+                <a [routerLink]="menu.path" routerLinkActive="active">
                   <span class="item-inner">
                     <span class="item-text">{{ menu.title }}</span>
                   </span>
@@ -80,7 +80,7 @@
           <ul id="mainMenu" class="p-0 m-0 d-flex">
             <ng-container *ngIf="rightItems">
               <li class="menu-item" *ngFor="let menu of rightItems;">
-                <a [routerLink]="menu.link" routerLinkActive="active">
+                <a [routerLink]="menu.path" routerLinkActive="active">
                   <span class="item-inner">
                     <span class="item-text">{{ menu.title }}</span>
                   </span>

@@ -7,6 +7,7 @@ import { ProductListComponent } from './pages/product-list/product-list.componen
 import { ProductSingleComponent } from './pages/product-single/product-single.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { AdminModule } from './pages/admin/admin.module';
+import { SetMenuComponent } from './pages/set-menu/set-menu.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -27,13 +28,17 @@ const routes: Routes = [
     component: ContactComponent
   },
   {
+    path: 'set-menu/:id',
+    component: SetMenuComponent
+  },
+  {
     path: 'admin',
     component: AdminComponent
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes),AdminModule],
+  imports: [RouterModule.forRoot(routes), AdminModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
